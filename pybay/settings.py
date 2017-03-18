@@ -133,6 +133,7 @@ INSTALLED_APPS = [
     # theme
     "bootstrapform",
     "pinax_theme_bootstrap",
+    "pinax.boxes",
 
     # external
     "account",
