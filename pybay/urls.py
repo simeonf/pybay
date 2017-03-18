@@ -5,7 +5,6 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
-# from symposion.views import SignupView
 from symposion.teams import urls as teams_urls
 from symposion.proposals import urls as proposals_urls
 
