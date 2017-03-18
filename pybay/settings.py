@@ -145,11 +145,12 @@ INSTALLED_APPS = [
     "timezones",
 
     # symposion
-    "symposion.schedule",
     "symposion.sponsorship",
     "symposion.conference",
     "symposion.speakers",
     "symposion.proposals",
+    "symposion.schedule",
+    "symposion.reviews",
     "symposion.teams",
 ]
 

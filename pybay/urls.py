@@ -9,7 +9,7 @@ import symposion.views
 from symposion.teams import urls as teams_urls
 from symposion.proposals import urls as proposals_urls
 from symposion.sponsorship import urls as sponsor_urls
-
+from symposion.speakers import urls as speaker_urls
 
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
@@ -28,7 +28,7 @@ urlpatterns = patterns(
     url(r"^account/", include("account.urls")),
 
     url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),
-    # url(r"^speaker/", include("symposion.speakers.urls")),
+    url(r"^speaker/", include(speaker_urls)),
     # url(r"^sponsors/", include("symposion.sponsorship.urls")),
     url(r"^boxes/", include("pinax.boxes.urls")),
     # url(r"^teams/", include("symposion.teams.urls")),
