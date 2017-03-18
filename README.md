@@ -17,7 +17,8 @@ Try:
     $ python3 -m venv ENV
     $ source ENV/bin/activate
     (ENV)$ pip install -r requirements.txt
-    (ENV)$ python manage.py runserver
+    (ENV)$ ./manage.py migrate
+    (ENV)$ ./manage.py runserver
 
 If you also will be adding fixes to symposion we forked you can delete
 the version in your site-packages and symlink in the directory on your

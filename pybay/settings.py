@@ -144,7 +144,11 @@ INSTALLED_APPS = [
     "timezones",
 
     # symposion
-    "symposion",
+    "symposion.schedule",
+    "symposion.conference",
+    "symposion.speakers",
+    "symposion.proposals",
+    "symposion.teams",
 ]
 
 # A sample logging configuration. The only tangible logging
