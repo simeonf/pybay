@@ -1,6 +1,5 @@
 {% extends "theme_bootstrap/base.html" %}
 
-{% load sitetree %}
 {% load staticfiles %}
 {% load markitup_tags %}
 {% load metron_tags %}
@@ -27,7 +26,10 @@
 {% endblock %}
 
 {% block nav %}
+   {% comment %}
+     We don't have sitetree currently
     {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap3.html" %}
+   {% endcomment %}
 {% endblock %}
 
 {% block body_base %}
