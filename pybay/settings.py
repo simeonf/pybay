@@ -107,7 +107,7 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.auth.middleware.SessionAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     # "django.middleware.transaction.TransactionMiddleware",  -- Deprecated in 1.6 (https://docs.djangoproject.com/en/dev/topics/db/transactions/#transaction-middleware)
-    "reversion.middleware.RevisionMiddleware",
+    # "reversion.middleware.RevisionMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -142,22 +142,21 @@ INSTALLED_APPS = [
     "eventlog",
     "markitup",
     "metron",
-    "reversion",
-    "sitetree",
+    # "sitetree",
     "taggit",
     "timezones",
 
     # symposion
     "symposion",
-    "symposion.boxes",
-    "symposion.cms",
-    "symposion.conference",
-    "symposion.proposals",
-    "symposion.reviews",
-    "symposion.schedule",
-    "symposion.speakers",
-    "symposion.sponsorship",
-    "symposion.teams",
+    # "symposion.boxes",
+    # "symposion.cms",
+    # "symposion.conference",
+    # "symposion.proposals",
+    # "symposion.reviews",
+    # "symposion.schedule",
+    # "symposion.speakers",
+    # "symposion.sponsorship",
+    # "symposion.teams",
 
     # project
     #"pybay",
