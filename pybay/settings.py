@@ -145,6 +145,7 @@ INSTALLED_APPS = [
 
     # symposion
     "symposion.schedule",
+    "symposion.sponsorship",
     "symposion.conference",
     "symposion.speakers",
     "symposion.proposals",
