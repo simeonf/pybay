@@ -18,3 +18,11 @@ Try:
     $ source ENV/bin/activate
     (ENV)$ pip install -r requirements.txt
     (ENV)$ python manage.py runserver
+
+If you also will be adding fixes to symposion we forked you can delete
+the version in your site-packages and symlink in the directory on your
+disk. Eg:
+
+    $ cd ~/workspace/pybay/ENV/lib/python3.6/site-packages/
+    $ rm -rf symposion
+    $ ln -s /Users/sfranklin/workspace/symposion/symposion .
