@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
+import symposion.views
 from symposion.teams import urls as teams_urls
 from symposion.proposals import urls as proposals_urls
 from symposion.sponsorship import urls as sponsor_urls
@@ -24,9 +25,9 @@ urlpatterns = patterns(
     url(r"^sponsors/", include(sponsor_urls)),
     # url(r"^account/signup/$", SignupView.as_view(), name="account_signup"),
     # url(r"^account/login/$", symposion.views.LoginView.as_view(), name="account_login"),
-    # url(r"^account/", include("account.urls")),
+    url(r"^account/", include("account.urls")),
 
-    # url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),
+    url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),
     # url(r"^speaker/", include("symposion.speakers.urls")),
     # url(r"^sponsors/", include("symposion.sponsorship.urls")),
     # url(r"^boxes/", include("symposion.boxes.urls")),
