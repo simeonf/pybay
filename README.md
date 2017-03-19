@@ -18,7 +18,10 @@ Try:
     $ source ENV/bin/activate
     (ENV)$ pip install -r requirements.txt
     (ENV)$ ./manage.py migrate
+    (ENV)$ ./manage.py loaddata fixtures/*
     (ENV)$ ./manage.py runserver
+
+The default admin user is test and password is test
 
 If you also will be adding fixes to symposion we forked you can delete
 the version in your site-packages and symlink in the directory on your
