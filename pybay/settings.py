@@ -152,6 +152,9 @@ INSTALLED_APPS = [
     "symposion.schedule",
     "symposion.reviews",
     "symposion.teams",
+
+    # pybay
+    'pybay.proposals',
 ]
 
 # A sample logging configuration. The only tangible logging
