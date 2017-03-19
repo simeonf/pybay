@@ -16,9 +16,8 @@ html5lib==0.9999999
 Markdown==2.6.5
 metron==1.3.5
 olefile==0.44
-Pillow==2.6.1
+Pillow
 pinax-theme-bootstrap==5.6.0
 pytz==2015.7
 six==1.10.0
-git+https://github.com/simeonf/symposion.git#egg=symposion-1.0b2.dev3
 pinax-boxes==2.1.2

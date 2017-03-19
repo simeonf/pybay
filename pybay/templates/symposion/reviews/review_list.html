@@ -1,4 +1,4 @@
-{% extends "reviews/base.html" %}
+{% extends "symposion/reviews/base.html" %}
 
 {% block body %}
 	<h3>{{ section }}</h3>
@@ -10,5 +10,5 @@
     	<h4>Proposals you have not yet reviewed</h4>
     {% endif %}
 
-    {% include "reviews/_review_table.html" %}
+    {% include "symposion/reviews/_review_table.html" %}
 {% endblock %}
