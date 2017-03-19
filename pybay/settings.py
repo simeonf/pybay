@@ -199,6 +199,9 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 
 AUTHENTICATION_BACKENDS = [
+    # Use the simple django auth backend for now in PyBay
+    'django.contrib.auth.backends.ModelBackend',
+    
     # Permissions Backends
     "symposion.teams.backends.TeamPermissionsBackend",
 
