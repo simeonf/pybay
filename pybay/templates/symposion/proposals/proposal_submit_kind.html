@@ -1,4 +1,4 @@
-{% extends "proposals/base.html" %}
+{% extends "symposion/proposals/base.html" %}
 
 {% load bootstrap %}
 {% load pinax_boxes_tags %}
@@ -13,7 +13,7 @@
     <form method="POST" action="" enctype="multipart/form-data" class="form-horizontal">
         {% csrf_token %}
         <fieldset>
-            {{ form|bootstrap_horizontal }}
+            {{ proposal_form|bootstrap_horizontal }}
         </fieldset>
         <div class="form-actions">
             <p>
