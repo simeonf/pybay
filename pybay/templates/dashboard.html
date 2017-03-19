@@ -44,7 +44,7 @@
                             <th>Actions</th>
                         </tr>
                         {% for proposal in user.speaker_profile.proposals.all %}
-                            {% include "proposals/_proposal_row.html" %}
+                            {% include "symposion/proposals/_proposal_row.html" %}
                         {% endfor %}
                     </table>
                 {% else %}
