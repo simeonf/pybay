@@ -5,6 +5,17 @@ from symposion.proposals.models import ProposalBase
 
 class Proposal(ProposalBase):
 
+    category = models.IntegerField(choices=
+        [(1, 'Fundamentals'),
+         (2, 'Language Internals'),
+         (3, 'All things Web'),
+         (4, 'Dealing with Data'),
+         (5, 'Security'),
+         (6, 'Performant Python'),
+         (7, 'Scalable Python'),
+         (8, '/etc')])
+
+
     AUDIENCE_LEVEL_NOVICE = 1
     AUDIENCE_LEVEL_EXPERIENCED = 2
     AUDIENCE_LEVEL_INTERMEDIATE = 3
