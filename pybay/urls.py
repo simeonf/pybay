@@ -41,7 +41,7 @@ urlpatterns = patterns(
     url(r"^markitup/", include("markitup.urls")),
 
 
-    url(r"^cfp$", pybay_cfp_create),
+    url(r"^cfp$", pybay_cfp_create, name="pybay_cfp"),
 
     # url(r"^", include("symposion.cms.urls")),
 )

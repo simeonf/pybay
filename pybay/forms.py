@@ -20,7 +20,7 @@ class CallForProposalForm(forms.Form):
     category = forms.ChoiceField(choices=TalkProposal.CATEGORY_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
     speaker_bio = forms.CharField(widget=forms.Textarea)
-    talk_title = forms.CharField(label='First Name', max_length=100)
+    talk_title = forms.CharField(label='Talk Title', max_length=100)
     description = forms.CharField(widget=forms.Textarea)
     abstract = forms.CharField(widget=forms.Textarea)
     what_will_attendees_learn = forms.CharField(widget=forms.Textarea)
