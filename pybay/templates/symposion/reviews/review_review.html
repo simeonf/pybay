@@ -28,6 +28,8 @@
             {{ proposal.abstract_html|safe }}
         </div>
 
+        <p><b>Category</b>: {{ proposal.get_category_display }}</p>
+
         <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
 
         <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p> {# @@@ bio? #}
