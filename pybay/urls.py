@@ -11,6 +11,8 @@ from symposion.proposals import urls as proposals_urls
 from symposion.sponsorship import urls as sponsor_urls
 from symposion.speakers import urls as speaker_urls
 
+from pybay.views import pybay_cfp_create
+
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 
@@ -35,6 +37,11 @@ urlpatterns = patterns(
     url(r"^reviews/", include("symposion.reviews.urls")),
     url(r"^schedule/", include("symposion.schedule.urls")),
     url(r"^markitup/", include("markitup.urls")),
+
+    url(r"^markitup/", include("markitup.urls")),
+
+
+    url(r"^cfp$", pybay_cfp_create),
 
     # url(r"^", include("symposion.cms.urls")),
 )

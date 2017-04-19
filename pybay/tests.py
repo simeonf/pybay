@@ -1,8 +1,17 @@
 from django.test import TestCase
 from pybay.forms import CallForProposalForm
 
+from symposion.proposals.models import ProposalKind
+
 
 class CfpFormTestCase(TestCase):
+    fixtures=[
+        "conference",
+        "proposal_base",
+        # "sites",
+        # "sponsor_benefits",
+        # "sponsor_levels",
+    ]
     
     def _get_data(self):
         return {
@@ -12,7 +21,7 @@ class CfpFormTestCase(TestCase):
             'website': "woo.com",
             'phone': "+14155289519",
             'category': "fundamentals",
-            'audience_level': 'beginner',
+            'audience_level': 1,
             'speaker_bio': 'wooo',
             'talk_title': 'wooo',
             'description': 'wooo',
@@ -39,3 +48,10 @@ class CfpFormTestCase(TestCase):
             form = CallForProposalForm(data)
             self.assertFalse(form.is_valid())
             self.assertIn(field_name, form.errors)
+
+    def test_form_save_models(self):
+        form = CallForProposalForm(self._get_data())
+        self.assertTrue(form.is_valid())
+
+        speaker, proposal = form.save_to_models()
+        self.assertEqual(speaker.name, "Daniel Pyrathon")
