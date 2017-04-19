@@ -1,16 +1,12 @@
 from django.test import TestCase
 from pybay.forms import CallForProposalForm
 
-from symposion.proposals.models import ProposalKind
 
 
 class CfpFormTestCase(TestCase):
     fixtures=[
         "conference",
         "proposal_base",
-        # "sites",
-        # "sponsor_benefits",
-        # "sponsor_levels",
     ]
     
     def _get_data(self):
@@ -55,3 +51,16 @@ class CfpFormTestCase(TestCase):
 
         speaker, proposal = form.save_to_models()
         self.assertEqual(speaker.name, "Daniel Pyrathon")
+        self.assertEqual(proposal.speaker, speaker)
+        self.assertEqual(speaker.user.username, "pirosb3@gmail.com")
+
+    def test_form_duplicate_profile(self):
+        form1 = CallForProposalForm(self._get_data())
+        speaker1, proposal1 = form1.save_to_models()
+
+        data = self._get_data()
+        data['talk_title'] = 'woo 2!'
+        form2 = CallForProposalForm(data)
+        speaker2, proposal2 = form2.save_to_models()
+
+        self.assertEqual(speaker1, speaker2)

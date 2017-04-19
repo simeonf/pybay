@@ -34,8 +34,9 @@ class CallForProposalForm(forms.Form):
         # Fetch the speaker
         full_name = "{} {}".format(data['first_name'], data['last_name'])
         try:
-            speaker = Speaker.objects.get(name=full_name)
-        except Speaker.DoesNotExist:
+            user = User.objects.get(username=data['email'])
+            speaker = user.speaker_profile
+        except User.DoesNotExist:
 
             # Create a new user
             password = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
