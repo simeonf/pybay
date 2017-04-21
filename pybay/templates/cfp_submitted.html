@@ -1,0 +1,16 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap %}
+{% load i18n %}
+{% load pinax_boxes_tags %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block body_class %}Call For Proposals{% endblock %}
+
+{% block body %}
+
+Thank you {{ speaker.name }}, your proposal "{{ proposal.title }}" has been submitted for review. We will get back to you shortly
+
+{% endblock %}
+
