@@ -1,17 +1,172 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 
-{% block content %}
-<!--Event Focus Starts -->
-    <a id="about" class="in-page-link"></a>
-
-    <section class="topics duplicatable-content">
-
+{% block sliders %}
+    <li class="hero-slide">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="Background Image" src="{% static 'new/img/sponsor_slider1.jpg' %}">
+        </div>
         <div class="container">
-	    <h1>I'm the sponsors page, implement me!</h1>
+            <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                    </div>
+            </div><!--end of row-->
         </div><!--end of container-->
-    </section>
-    <!--Previous Meetup Ends -->
+    </li>
+    <li class="hero-slide">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="Background Image" src="{% static 'new/img/sponsor_slider2.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <img alt="Meetup 2014" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
+                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                        <span class="lead text-white">We're gonna make one of those blurry cafe videos and everything, so don't miss out!</span>
+                </div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </li>
+    <li class="hero-slide">
+        <div class="background-image-holder parallax-background">
+                <img class="background-image" alt="Background Image" src="{% static 'new/img/ch7.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <img alt="Meetup 2014" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
+                    <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                                <span class="lead text-white">We're gonna make one of those blurry cafe videos and everything, so don't miss out!</span>
+                </div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </li>
+        <li class="hero-slide">
+            <div class="background-image-holder parallax-background">
+                <img class="background-image" alt="Background Image" src="{% static 'new/img/cdbg.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                    <img alt="Meetup 2014" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
+                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                        <span class="lead text-white">We're gonna make one of those blurry cafe videos and everything, so don't miss out!</span>
+                    </div>
+                </div><!--end of row-->
+            </div><!--end of container-->
+         </li>
+{% endblock sliders %}
+{% block content %}
+    <div class="container">
+    <h1> Graph 1 goes here</h1>
+    <div id="barchart2"> </div>
+</div>
+<!-- Chart 3 ENDS -->
+<div class="container">
+        <div class="col-md-12 no-padding clearfix">
+            <div class="page-header pull-left">
+                <h1>Sponsorship table</h1>
+            </div>
+        </div><!-- /.col-md-12 -->
+            <div class="separator col-md-12">
+                <div class="pricely-chart pricely-professional">
+                    <section class="pricely-chart-three col-xs-12">
+                        <ul class="pricely-pro" >
+                            <li class="pricely-first-heading panel-default col-md-4">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Features</span>
+                                    <p class="pricely-foreword">Select your plan</p>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Pre-Keynote</li>
+                                    <li class="list-group-item">Preferred Exhibit Table </li>
+                                    <li class="list-group-item">Exhibit Table</li>
+                                    <li class="list-group-item">Logo on pybay.com</li>
+                                    <li class="list-group-item">Pybay tickets</li>
+                                    <li class="list-group-item">Bag or Raffle</li>
+                                    <li class="list-group-item">Additional..</li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-info col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Platinum</span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">20,000</span>
+                                    </div>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-warning col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Gold</span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">11,000</span>
+                                    </div>
+
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-info col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Silver</span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">6,000</span>
+                                    </div>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-warning col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Bronze</span>
+
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">2,000</span>
+                                    </div>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-ok"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-remove x"></span> <span class="feature-hide"></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+    </div><!--container -->
 {% endblock content %}
 
 
