@@ -1,4 +1,4 @@
-{% extends "new/base.html" %}
+{% extends "frontend/base.html" %}
 
 {% load bootstrap %}
 {% load i18n %}
@@ -10,6 +10,7 @@
 
 {% block content %}
 
-Thank you {{ speaker.name }}, your proposal "{{ proposal.title }}" has been submitted for review. We will get back to you shortly
-
+<div class="container"><h3><b><br/>
+    Thank you {{ speaker.name }}. Your proposal "{{ proposal.title }}" has been submitted for review. We will get back to you shortly.
+</b><h3></div>
 {% endblock content %}

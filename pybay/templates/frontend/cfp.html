@@ -1,6 +1,7 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 {% load bootstrap %}
+{% load pinax_boxes_tags %}
 
 {% block sliders %}
    <li class="hero-slide">
@@ -115,10 +116,15 @@
     </section>
 <!--Event Focus Ends -->
 <!-- Forms Start -->
-    <form action="{% url 'pybay_cfp' %}" method="post">
+    <div class="container">
+    <form class="well form-horizontal" action="{% url 'pybay_cfp' %}" method="post" id="contact_form">
         {% csrf_token %}
         {{ form|bootstrap }}
-        <input type="submit" value="Submit Proposal">
-    </form>
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-warning">Submit<span class="glyphicon glyphicon-send"></span> </button>
+            </div></div>
+    </form></div>
 <!-- Forms End -->
 {% endblock content %}
