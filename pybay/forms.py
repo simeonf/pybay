@@ -51,8 +51,8 @@ class CallForProposalForm(forms.Form):
                 user=user,
                 name=full_name,
                 biography=data['speaker_bio'],
-                github_account=data['website'],
-                phone_number=data['phone'],
+                # github_account=data['website'],
+                # phone_number=data['phone'],
             )
 
         # Create a new talk
