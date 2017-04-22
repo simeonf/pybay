@@ -39,7 +39,7 @@ class CallForProposalForm(forms.Form):
         except User.DoesNotExist:
 
             # Create a new user
-            password = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
+            password = ''.join(random.choice([string.ascii_uppercase + string.digits for i in range(10)]))
             user = User.objects.create_user(
                 username=data['email'],
                 email=data['email'],
