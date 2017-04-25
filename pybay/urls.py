@@ -41,6 +41,8 @@ urlpatterns = patterns(
 
 
     url(r"^sponsors$", TemplateView.as_view(template_name="frontend/sponsors.html"), name="pybay_sponsors"),
+    url(r"^code_of_conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
+    url(r"^coc_reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
     url(r"^cfp$", pybay_cfp_create, name="pybay_cfp"),
     # url(r"^", include("symposion.cms.urls")),
 )
