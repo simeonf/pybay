@@ -30,3 +30,25 @@ disk. Eg:
     $ cd ~/workspace/pybay/ENV/lib/python3.6/site-packages/
     $ rm -rf symposion
     $ ln -s /Users/sfranklin/workspace/symposion/symposion .
+
+## Deploying
+
+Install fabric. Then use the `fab` command to run the deploy
+task. You'll need the ssh login password for this.
+
+    $ pip install fabric
+    $ fab deploy
+    [pyconsf.com] Executing task 'deploy'
+    Start with a git checkout.
+    [pyconsf.com] Passphrase for private key:
+    ... much output...
+    Successfully completed
+
+By default the deploy task deploys to staging.pyconsf.com. To deploy
+to production (same server but virtualhost pyconsf.com) run it with
+the prod target as an argument.
+
+    $ fab deploy:prod
+    [pyconsf.com] Executing task 'deploy'
+    ... much output...
+    Successfully completed
