@@ -14,7 +14,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['prod.pyconfsf.com', 'pyconfsf.com', 'www.pyconfsf.com']
+ALLOWED_HOSTS = ['prod.pyconsf.com', 'pyconsf.com', 'www.pyconsf.com']
 
 TIME_ZONE = "US/Pacific"
 
