@@ -2005,7 +2005,7 @@ p.question {
 }
 /*!
 // 16. Forms
-// --------------------------------------------------*/
+// --------------------------------------------------
 form.register {
   overflow: hidden;
   padding-top: 24px;
@@ -2019,7 +2019,7 @@ form.register .select-holder {
   margin-bottom: 32px;
   padding: 12px;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: red;
   border-radius: 25px;
   font-size: 14px;
   max-width: 90%;

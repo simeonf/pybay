@@ -155,6 +155,7 @@ INSTALLED_APPS = [
 
     # pybay
     'pybay.proposals',
+    'crispy_forms',
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -223,3 +224,5 @@ PROPOSAL_FORMS = {
     "tutorial": "pybay.proposals.forms.TutorialProposalForm",
     "talk": "pybay.proposals.forms.TalkProposalForm",
 }
+#Crispy Forms
+CRISPY_TEMPLATE_PACK ='bootstrap3'

@@ -9,6 +9,9 @@ from symposion.speakers.models import Speaker
 from symposion.proposals.models import ProposalKind
 from pybay.proposals.models import TalkProposal
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
 class CallForProposalForm(forms.Form):
     first_name = forms.CharField(label='First Name', max_length=100)
@@ -25,6 +28,28 @@ class CallForProposalForm(forms.Form):
     abstract = forms.CharField(widget=forms.Textarea)
     what_will_attendees_learn = forms.CharField(widget=forms.Textarea)
     speaker_and_talk_history = forms.CharField(widget=forms.Textarea)
+
+    helper = FormHelper()
+    helper.form_class = 'form-horizontal'
+    helper.label_class = 'col-md-4'
+    helper.field_class = 'col-lg-8'
+    helper.layout = Layout(
+        PrependedText('first_name', '<i class="glyphicon glyphicon-user"></i>', placeholder='First Name'),
+        PrependedText('last_name', '<i class="glyphicon glyphicon-user"></i>',placeholder='Last Name'),
+        PrependedText('email', '<i class="glyphicon glyphicon-envelope"></i>',placeholder='   Email'),
+        PrependedText('website', '<i class="glyphicon glyphicon-globe"></i>',placeholder='  Website'),
+        PrependedText('phone', '<i class="glyphicon glyphicon-earphone"></i>',placeholder='+90 999 99 999'),
+        'category',
+        'audience_level',
+        PrependedText('speaker_bio', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Speaker Bio'),
+        PrependedText('talk_title', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Talk Title'),
+        PrependedText('description', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Description'),
+        PrependedText('abstract', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Abstract'),
+        PrependedText('what_will_attendees_learn', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='This is for the reviewers, the info here will not be published.'),
+        PrependedText('speaker_and_talk_history', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Anything else we should know about you and your speaking experience. Will you have a co-presenter?'),
+
+    )
+
 
     def save_to_models(self):
         if not self.is_valid():
