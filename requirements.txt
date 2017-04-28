@@ -22,3 +22,4 @@ pytz==2015.7
 six==1.10.0
 pinax-boxes==2.1.2
 git+https://github.com/simeonf/symposion.git#egg=symposion-1.0b2.dev3
+django-crispy-forms==1.6.1
