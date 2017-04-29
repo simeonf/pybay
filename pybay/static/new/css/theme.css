@@ -2019,7 +2019,7 @@ form.register .select-holder {
   margin-bottom: 32px;
   padding: 12px;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   border-radius: 25px;
   font-size: 14px;
   max-width: 90%;
@@ -2204,7 +2204,7 @@ form .field-error {
   font-size: 14px;
 }
 .footer .menu li a {
-  diplay: inline-block;
+  display: inline-block;
   position: relative;
   border: none;
 }
