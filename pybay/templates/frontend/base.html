@@ -55,7 +55,7 @@
                                         <a class="inner-link" href="/cfp">call for proposals</a>
                                     </li>
                                     <li>
-                                        <a class="inner-link" href="#" >blog</a>
+                                        <a class="inner-link" href="http://www.pybay.com/blog" target="_blank" >blog</a>
                                     </li>
 									<li class="social-link">
                                         <a href="https://twitter.com/py_bay" target="_blank"><i class="icon social_twitter"></i></a>
@@ -89,7 +89,7 @@
                                         <a class="inner-link" href="#" target="default">Help Needed</a>
                                     </li>
 									<li>
-                                        <a class="inner-link" href="#register" target="default">Blog</a>
+                                        <a class="inner-link" href="http://www.pybay.com/blog" target="_blank">Blog</a>
                                     </li>
 								</ul>
 							</div>
@@ -101,7 +101,10 @@
 							</div>
 						</div><!--end of sidebar content-->
 					</div><!--end of sidebar-->
-					<div class="instagram-sidebar"></div>
+					<div class="instagram-sidebar">
+                        <div class="instafeed" data-user-name="insideenvato">
+                        </div>
+                    </div>
 				</nav>
 		</div><!--end nav container-->
         {% endblock header %}
@@ -111,9 +114,8 @@
                     {% block sliders %}
 					<li class="hero-slide">
 						<div class="background-image-holder parallax-background">
-							<img class="background-image" alt="Background Image" src="{% static 'new/img/cdbg.jpg' %}">
+							<img class="background-image" alt="Background Image" src="{% static 'new/img/slide1.jpg' %}">
 						</div>
-
 						<div class="container">
 							<div class="row">
 								<div class="col-md-6 col-sm-6">
@@ -124,15 +126,12 @@
 					</li>
 					<li class="hero-slide">
 						<div class="background-image-holder parallax-background">
-							<img class="background-image" alt="Background Image" src="new/img/hero2.jpg">
+							<img class="background-image" alt="Background Image" src="{% static 'new/img/slide2.jpg' %}">
 						</div>
-
 						<div class="container">
 							<div class="row">
 								<div class="col-md-6 col-sm-6">
-									<img alt="Meetup 2014" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
 									<h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
-									<span class="lead text-white">We're gonna make one of those blurry cafe videos and everything, so don't miss out!</span>
 								</div>
 
 							</div><!--end of row-->
@@ -140,14 +139,25 @@
 					</li>
 					<li class="hero-slide">
 						<div class="background-image-holder parallax-background">
-							<img class="background-image" alt="Background Image" src="new/img/hero1.jpg">
+							<img class="background-image" alt="Background Image" src="{% static 'new/img/slide3.jpg' %}">
 						</div>
 						<div class="container">
 							<div class="row">
 								<div class="col-md-6 col-sm-6">
-									<img alt="Meetup 2014" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
 									<h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
-									<span class="lead text-white">We're gonna make one of those blurry cafe videos and everything, so don't miss out!</span>
+								</div>
+
+							</div><!--end of row-->
+						</div><!--end of container-->
+					</li>
+                    <li class="hero-slide">
+						<div class="background-image-holder parallax-background">
+							<img class="background-image" alt="Background Image" src="{% static 'new/img/slide4.jpg' %}">
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-sm-6">
+									<h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
 								</div>
 
 							</div><!--end of row-->
@@ -210,7 +220,9 @@
 						<div class="col-sm-8">
 							<span class="lead color-heading">About SF Python</span>
 							<p>
-								PyBay is a production of SF Python, a volunteer-run organization dedicated to building a stronger Dev Community so we can make a positive contribution to the Python ecosystem.  We do this by producing fun events that encourage developers to meet like minded folks, share what they know and learn from each other.  It’s a lot of work but we love seeing people grow and make new friends.  We love hearing that companies are making hires and migrating to more suited technologies as a result of our gatherings.  We also love that beneficiaries want to contribute back financially and via other means.  We look forward to delighting you at PyBay and other SF Python events throughout the year.
+								PyBay is offered by SF Python, a volunteer-run organization dedicated to building a stronger Python developer community. We do this by organizing fun events that encourage developers to meet like-minded folks, share what they know, and learn from each other. It’s hard work, but seeing people grow and make new friends and connections makes it worth it! We love hearing about companies making hires and migrating to better technologies as a result of our gatherings. We're also grateful to receive support for our work, financially and otherwise. We look forward to delighting you at PyBay and at other <a href="https://www.meetup.com/sfpython/" target="_blank">SF Python events</a> throughout the year.
+
+
 							</p>
 						</div>
 

@@ -357,7 +357,6 @@ p a,
   font-weight: 600;
   color: #fff;
   display: inline-block;
-  border-bottom: 4px solid #fff;
   padding-bottom: 6px;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
@@ -367,15 +366,13 @@ span a,
 p a,
 .text-link a {
   padding-bottom: 4px;
-  border-bottom: 3px solid #fff;
 }
 span a:hover {
   color: #fff;
 }
 p a,
 .text-link a {
-  color: #ff5f00 !important;
-  border-color: #ff5f00;
+  color: #428bca !important;
   padding-bottom: 2px;
 }
 p a,
@@ -398,7 +395,7 @@ p a,
 }
 .btn:hover {
   color: #fff;
-  background: #e65600;
+  background: #428bca;
 }
 .btn-hollow {
   background: none;
@@ -1347,7 +1344,7 @@ nav .container {
 }
 .topic i {
   font-size: 60px;
-  color: #ff5f00;
+  color: #FBBD4A;
   display: inline-block;
   margin-bottom: 32px;
 }
