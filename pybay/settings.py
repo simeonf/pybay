@@ -153,7 +153,7 @@ INSTALLED_APPS = [
     "symposion.reviews",
     "symposion.teams",
 
-    # pybay
+    'pybay',
     'pybay.proposals',
     'crispy_forms',
 ]
