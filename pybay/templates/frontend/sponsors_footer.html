@@ -1,14 +1,16 @@
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-12">
-        <div class="bs-example" data-example-id="simple-thumbnails">
-            <div class="row">
-                {% for sponsor in sponsors %}
-                  {% if sponsor.website_logo %}
-                     <div class="col-md-3 col-xs-6"> <a href="#" class="thumbnail img-responsive"> <img alt="100%x180" data-src="holder.js/100%x180" style="height: 140px; width: 100%; display: block;" src="{{ sponsor.website_logo.url }}" data-holder-rendered="true"> </a> </div>
-                  {% endif %}
-                {% endfor %}
+{% if sponsors %}
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-12">
+            <div class="bs-example" data-example-id="simple-thumbnails">
+                <div class="row">
+                    {% for sponsor in sponsors %}
+                      {% if sponsor.website_logo %}
+                         <div class="col-md-3 col-xs-6"> <a href="#" class="thumbnail img-responsive"> <img alt="100%x180" data-src="holder.js/100%x180" style="height: 140px; width: 100%; display: block;" src="{{ sponsor.website_logo.url }}" data-holder-rendered="true"> </a> </div>
+                      {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-   </div>
-</div>
+       </div>
+    </div>
+{% endif %}
