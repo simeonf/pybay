@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .forms import CallForProposalForm
+from pybay.faqs.models import Faq
 from symposion.sponsorship.models import Sponsor
 
 from collections import defaultdict
@@ -18,6 +19,11 @@ def pybay_sponsors_list(request):
         "gold_sponsors": sponsor_map['Gold'],
         "silver_sponsors": sponsor_map['Silver'],
     })
+
+
+def pybay_faq_index(request):
+    faqs = Faq.objects.order_by('ordering').all()
+    return render(request, 'frontend/faq.html', {'faqs': faqs})
 
 
 def pybay_cfp_create(request):
