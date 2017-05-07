@@ -50,6 +50,21 @@ class CallForProposalForm(forms.Form):
 
     )
 
+    def clean_talk_title(self):
+        value = self.cleaned_data["talk_title"]
+        if len(value) > 90:
+            raise forms.ValidationError(
+                u"The talk title must be less than 90 characters"
+            )
+        return value
+
+    def clean_description(self):
+        value = self.cleaned_data["description"]
+        if len(value) > 400:
+            raise forms.ValidationError(
+                u"The description must be less than 400 characters"
+            )
+        return value
 
     def save_to_models(self):
         if not self.is_valid():
