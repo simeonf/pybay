@@ -18,8 +18,9 @@ class CallForProposalForm(forms.Form):
     last_name = forms.CharField(label='Last Name', max_length=100)
     email = forms.EmailField(label='Email')
     website = forms.URLField(label='Website', required=False)
-    phone = forms.RegexField(regex=r'^\+?1?\d{9,15}$',
-                             error_message=("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
+    phone = forms.RegexField(regex=r'^\+?1?\d{9,15}$')
+    phone.error_messages['invalid'] = ("Phone number must be entered in "
+        "the format: '+999999999'. Up to 15 digits allowed.")
     category = forms.ChoiceField(choices=TalkProposal.CATEGORY_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
     speaker_bio = forms.CharField(widget=forms.Textarea)
