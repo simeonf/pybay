@@ -5,7 +5,7 @@ from pybay.faqs.models import Faq
 
 
 def pybay_faq_index(request):
-    faqs = Faq.objects.all()
+    faqs = Faq.objects.order_by('ordering').all()
     return render(request, 'frontend/faq.html', {'faqs': faqs})
 
 
