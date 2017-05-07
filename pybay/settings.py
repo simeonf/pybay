@@ -146,6 +146,7 @@ INSTALLED_APPS = [
 
     # pybay
     'pybay.proposals',
+    'pybay.faqs',
     'crispy_forms',
 ]
 

@@ -1,6 +1,12 @@
 from django.shortcuts import render
 
 from .forms import CallForProposalForm
+from pybay.faqs.models import Faq
+
+
+def pybay_faq_index(request):
+    faqs = Faq.objects.all()
+    return render(request, 'frontend/faq.html', {'faqs': faqs})
 
 
 def pybay_cfp_create(request):

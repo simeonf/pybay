@@ -1,0 +1,22 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="code_of_conduct">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h1><strong><i>Tickets</i></strong></h1>
+
+                <!-- place this where you want the widget to appear -->
+                <tito-widget event="sf-python/pybay-2017"></tito-widget>
+
+                <!-- for basic styles include a link to our stylesheet. -->
+                <!-- fancy something more adventurous? Copy it and roll your own! -->
+                <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1' />
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
