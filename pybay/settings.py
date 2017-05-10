@@ -6,7 +6,6 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 EMAIL_DEBUG = DEBUG
 
 DATABASES = {
@@ -78,26 +77,22 @@ STATICFILES_FINDERS = [
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = "some thing pybay2017 "
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = [
-    "django.template.loaders.filesystem.Loader",
-    "django.template.loaders.app_directories.Loader",
-]
-
-TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages",
-    "account.context_processors.account",
-    "pinax_theme_bootstrap.context_processors.theme",
-    "symposion.reviews.context_processors.reviews",
-]
-
+TEMPLATES = [{
+    'APP_DIRS': True,
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(PACKAGE_ROOT, 'templates')],
+    'OPTIONS': {'context_processors': [
+        'django.contrib.auth.context_processors.auth',
+        'django.template.context_processors.debug',
+        'django.template.context_processors.i18n',
+        'django.template.context_processors.media',
+        'django.template.context_processors.static',
+        'django.template.context_processors.tz',
+        'django.template.context_processors.request',
+        'django.contrib.messages.context_processors.messages',
+        'account.context_processors.account',
+        'pinax_theme_bootstrap.context_processors.theme',
+        'symposion.reviews.context_processors.reviews']}}]
 
 MIDDLEWARE_CLASSES = [
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -113,10 +108,6 @@ ROOT_URLCONF = "pybay.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = "pybay.wsgi.application"
-
-TEMPLATE_DIRS = [
-    os.path.join(PACKAGE_ROOT, "templates"),
-]
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
@@ -153,8 +144,10 @@ INSTALLED_APPS = [
     "symposion.reviews",
     "symposion.teams",
 
-    # pybay
+    'pybay',
     'pybay.proposals',
+    'pybay.faqs',
+    'crispy_forms',
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -223,3 +216,5 @@ PROPOSAL_FORMS = {
     "tutorial": "pybay.proposals.forms.TutorialProposalForm",
     "talk": "pybay.proposals.forms.TalkProposalForm",
 }
+#Crispy Forms
+CRISPY_TEMPLATE_PACK ='bootstrap3'

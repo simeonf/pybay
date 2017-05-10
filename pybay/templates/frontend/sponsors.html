@@ -1,0 +1,460 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block sliders %}
+    <li class="hero-slide">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="Background Image" src="{% static 'new/img/sponsor_slider1.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                    </div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </li>
+    <li class="hero-slide">
+        <div class="background-image-holder parallax-background">
+                <img class="background-image" alt="Background Image" src="{% static 'new/img/ch7.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                </div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </li>
+        <li class="hero-slide">
+            <div class="background-image-holder parallax-background">
+                <img class="background-image" alt="Background Image" src="{% static 'new/img/cdbg.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
+                    </div>
+                </div><!--end of row-->
+            </div><!--end of container-->
+         </li>
+{% endblock sliders %}
+{% block content %}
+<!-- Why Sponsor Starts -->
+<a id="about" class="in-page-link"></a>
+<section class="topics duplicatable-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="blue-header">Why Sponsor? </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="topic">
+                    <i class="pe-7s-graph1"> </i>
+                    <h3 class="blue-header">Maximize your ROI</h3>
+                    <p class="lead">
+                        if your target audience is Python Developers in San Franciso Bay Area, there is no better dev gathering to promote your company.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="topic">
+                    <i class="pe-7s-paper-plane"> </i>
+                    <h3 class="blue-header">Elevate your brand</h3>
+                    <p class="lead">
+                        Sponsoring companies and attendees are among the most innovative and forward thinking in the Python ecosystems.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="topic">
+                    <i class="pe-7s-micro"> </i>
+                    <h3 class="blue-header">Get the word out</h3>
+                    <p class="lead">
+                        Higher level sponsorships offers more creative options to interact with devs to promote your product, technology, or network for your next hire.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="topic">
+                    <i class="pe-7s-cup"> </i>
+                    <h3 class="blue-header">Be a hero for the community</h3>
+                    <p class="lead">
+                        Your sponsorship dollar also supports SF Python who produce 20+ donation based educational events a year, and a local charity chosen by the attendees.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="topics duplicatable-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="blue-header">Who attended the Inaugural PyBay?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <h1>Graph 1 goes here</h1>
+
+                 <canvas id="barchart1" width="500" height="300"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div>'
+                    <h1>Graph 2 goes here</h1>
+                    <canvas id="barchart2" width="500" height="300"></canvas>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div>
+                    <h1>Pie Charts Goes Here</h1>
+                    <canvas id="barchart2" width="500" height="300"></canvas>
+                </div>ß
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Why Sponsor Ends-->
+<!-- Chart 3 ENDS -->
+<section>
+<div class="container">
+        <div class="col-md-12 no-padding clearfix">
+            <div class="page-header pull-left">
+                <h2 class="blue-header">Sponsorship Opportunities</h2>
+                <h2 class="blue-header">PyBay 2017 Sponsor Agreement</h2>
+            </div>
+        </div><!-- /.col-md-12 -->
+            <div class="separator col-md-12">
+                <div class="pricely-chart pricely-professional">
+                        <ul class="pricely-pro" >
+                            <li class="pricely-first-heading panel-default col-md-4">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label">Benefits</span>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item">5 Min.Pre-Keynote Speaking slot</li>
+                                    <li class="list-group-item">Extended exhibition time</li>
+                                    <li class="list-group-item">Pop-up banner on main stage</li>
+                                    <li class="list-group-item">Table at job fair/tools expo</li>
+                                    <li class="list-group-item">100 words desc and logo on pybay.com</li>
+                                    <li class="list-group-item">Logo on back of PyBay t-shirt</li>
+                                    <li class="list-group-item">PyBay tickets</li>
+                                    <li class="list-group-item">Bag insert OR raffle item</li>
+                                    <li class="list-group-item">Additionals include one of the following:</li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-info col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label"><b>Platinum</b></span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">20,000</span>
+                                    </div>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Pre-Keynote </span>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Exhibition Time</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Pop-up Banner</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Table at fair</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">100 word desc and Logo on pybay.com</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span> Large </span>
+                                        <span class="feature-hide">Logo on PyBay Shirt</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>4</span>
+                                        <span class="feature-hide">PyBay tickets</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>2</span>
+                                        <span class="feature-hide">Bag insert</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Additionals</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                        <span>Lounge + $3000</span>
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                        <span>Opening Reception</span>
+
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                        <span>Backpack Logo</span>
+                                    </li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-warning col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label"><b>Gold</b></span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">10,000</span>
+                                    </div>
+
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Exhibition Time</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Pop-up Banner</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Table at fair</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">100 word desc and Logo on pybay.com</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Large</span>
+                                        <span class="feature-hide">Logo on PyBay Shirt</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>3</span>
+                                        <span class="feature-hide">PyBay tickets</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>2</span>
+                                        <span class="feature-hide">Bag insert</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Additionals</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Massage + $2000</span>
+                                    </li>
+                                     <li class="list-group-item">
+                                        <span>Meals Sat & Sun(4)</span>
+
+                                    </li>
+                                     <li class="list-group-item">
+                                        <span>Snack(1)</span>
+                                    </li>
+                                     <li class="list-group-item">
+                                        <span>Coffee(1)</span>
+                                    </li>
+                                     <li class="list-group-item">
+                                        <span>Talk Slot(2)</span>
+                                    </li>
+                                     <li class="list-group-item">
+                                        <span>Video(4)</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-info col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label"><b>Silver</b></span>
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">5,000</span>
+                                    </div>
+                                </h3>
+                               <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="glyphicon "></span>
+                                        <span class="feature-hide"></span>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>    </span>
+                                        <span class="feature-hide"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">Table at fair</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                       <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">100 word desc and Logo on pybay.com</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Medium</span>
+                                        <span class="feature-hide">Logo on PyBay Shirt</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>2</span>
+                                        <span class="feature-hide">PyBay tickets</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>1</span>
+                                        <span class="feature-hide">Bag insert</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide">Additionals</span>
+                                    </li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                </ul>
+                            </li>
+                            <li class="pricely-inner panel-warning col-xs-6 col-md-2">
+                                <h3 class="panel-heading">
+                                    <span class="pricely-label"><b>Bronze</b></span>
+
+                                    <div class="pricely-figure">
+                                        <span class="pricely-currency">$</span>
+                                        <span class="pricely-amount">2,500</span>
+                                    </div>
+                                </h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide"></span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        <span class="feature-hide">100 word desc and Logo on pybay.com</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Small</span>
+                                        <span class="feature-hide">Logo on PyBay Shirt</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span> 1</span>
+                                        <span class="feature-hide">PyBay tickets</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span> 1</span>
+                                        <span class="feature-hide">Bag insert</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="feature-hide">Additionals</span>
+                                    </li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                    <li class="list-group-item"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="container">
+            <table class="table-responsive">
+
+                <th class="first-column">Add Ons:</th>
+                <th>Logo on Lanyard <br>$1,000</th>
+                <th>Open Space Room <br>Naming <br>$1,000</th>
+                <th>Main Talks <br>Room Naming <br>$2,500</th>
+                <th>Drinks at Job Fair/ SW Tools Expo <br>$6,000 Per Round</th>
+                <th class="last-column">Scholarship Financial Aid <br>$ You Decide</th>
+            </table>
+        </div>
+    </div><!--container -->
+</section>
+{% endblock content %}
+
+{% block subscribe %}
+<a id="register" class="in-page-link"></a>
+
+            <section class="image-with-text background-dark preserve-3d">
+
+                <div class="container vertical-align">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-8">
+                            <h1 class="text-white">Contact us for more Info for PyBay 2017</h1>
+                            <form class="register email-form">
+                                <div class="col-sm-6">
+                                    <input class="form-name validate-required" type="text" placeholder="Name" name="name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-email validate-email" type="text" placeholder="Email Address" name="email">
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <input type="submit" value="Register Now" class="btn">
+
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <span>* We process using a 100% secure gateway</span>
+                                    <div class="form-success"><span>Thank you, your registration has been received!</span></div>
+                                    <div class="form-error"><span>Validation error, please check all fields</span></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!--end of row-->
+
+                </div><!--end of container-->
+
+                <div class="go-right side-image col-sm-4 col-md-6">
+                    <div class="background-image-holder">
+                        <img class="background-image" alt="About Image" src= "{% static 'new/img/lb3.jpg' %}">
+                    </div>
+                </div>
+       </section>
+{% endblock subscribe %}
+
+
+
+
+
+
