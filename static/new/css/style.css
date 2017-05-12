@@ -265,3 +265,7 @@ table tr {
 .tickets {
     margin-top: 40px;
 }
+#pie1 {
+    width: 100%;
+    margin-left: 8%;
+}
