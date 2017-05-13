@@ -286,14 +286,10 @@ input#mce-EMAIL.form-email.signup-email-field{
     margin: 0px auto;
     min-width: 100%;
     max-width: 100%;
-}
-span.count {
-
+    text-align: center;
 }
 div.counter-box {
     position: relative;
-
-
 }
 span.count {
     margin: 0;
@@ -315,7 +311,6 @@ p.title {
     line-height: 16px;
     color: #FBBD4A;
 }
-
 section.topics.duplicatable-content{
     padding-top: 150px;
 }
