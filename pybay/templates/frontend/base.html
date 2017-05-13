@@ -82,7 +82,7 @@
                                     <a class="inner-link" href="/" target="default">home</a>
                                 </li>
 								<li>
-                                    <a class="inner-link" href="sponsor" target="default">sponsors</a>
+                                    <a class="inner-link" href="{% url 'pybay_sponsors' %}" target="default">sponsors</a>
                                 </li>
                                 <li>
                                     <a class="inner-link" href="cfp" target="default">Call For Proposal</a>
@@ -119,55 +119,6 @@
 
     {% block content %}
     {% endblock content %}
-
-     {% block subscribe %}
-    <!--Subscribe to stay tune Starts -->
-    <section class="subscribe-2">
-		<div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-				    <i class="icon pe-7s-pen"></i>
-				    <i class="icon pe-7s-mail-open-file"></i>
-				    <i class="icon pe-7s-paper-plane"></i>
-				    <h1 class="large-h1">Subscribe to stay informed</h1>
-				</div>
-            </div><!--end of row-->
-			<form action="//pybay.us13.list-manage.com/subscribe/post?u=67e3e75a2e0fe4ee8ceb3e1e7&amp;id=0f17fc9d03" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-	            <div class="row">
-	                <div class="col-sm-12 text-center">
-					    <input type="email" value="" name="EMAIL" class="form-email signup-email-field email" id="mce-EMAIL" placeholder="Enter your email address" required>
-					    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-					    	<input type="text" name="b_67e3e75a2e0fe4ee8ceb3e1e7_0f17fc9d03" tabindex="-1" value="">
-					    </div>
-					</div>
-	            </div><!--end of row-->
-	            <div class="row">
-	                <div class="col-sm-12 text-center">
-	                	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
-					</div>
-	            </div><!--end of row-->
-			</form>
-		</div>
-				<!--End mc_embed_signup-->
-<!-- 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				    <form class="email-subscribe mail-list-signup">
-				        <div class="col-sm-7">
-				            <input class="form-email signup-email-field" type="text"    placeholder="Enter your email address">
-                        </div>
-                        <div class="col-sm-5">
-                            <input class="btn" type="submit" value="Subscribe">
-                        </div>
-                        <div class="col-sm-12 text-center">
-                            <span>*We never share your email with 3rd parties</span>
-				        </div>
-				        <iframe class="mail-list-form" srcdoc=""></iframe>
-				    </form>
-				</div> -->
-            </div><!--end of row-->
-        </div><!--end of container-->
-    </section>
-    <!--Subsribe to stay Tune Ends -->
-     {% endblock subscribe %}
 
      {% block pythonfans %}
      {% endblock pythonfans %}
