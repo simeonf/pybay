@@ -314,5 +314,12 @@ p.title {
     font-size: 16px;
     line-height: 16px;
     color: #FBBD4A;
+}
+
+section.topics.duplicatable-content{
+    padding-top: 150px;
+}
+section.topics.duplicatable-content.home-page {
+    padding-top: 72px;
 
 }
