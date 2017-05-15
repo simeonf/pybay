@@ -1,0 +1,1 @@
+PYTHONPATH=`pwd`/symposion:$PYTHONPATH python manage.py runserver
