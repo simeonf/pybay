@@ -21,12 +21,14 @@ class CallForProposalForm(forms.Form):
     phone = forms.CharField(label='Phone', max_length=20)
     category = forms.ChoiceField(choices=TalkProposal.CATEGORY_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
+    meetup_talk = forms.ChoiceField(widget=forms.RadioSelect,label="Deliver talk @ future SF Python Meetups?", choices=TalkProposal.MEETUP_CHOICES)
     speaker_bio = forms.CharField(widget=forms.Textarea)
     talk_title = forms.CharField(label='Talk Title', max_length=100)
     description = forms.CharField(widget=forms.Textarea)
     abstract = forms.CharField(widget=forms.Textarea)
     what_will_attendees_learn = forms.CharField(widget=forms.Textarea)
     speaker_and_talk_history = forms.CharField(widget=forms.Textarea)
+    links_to_past_talks = forms.CharField(widget=forms.Textarea, label="Links to slide deck/talk video", max_length=100, required=False)
 
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
@@ -40,12 +42,14 @@ class CallForProposalForm(forms.Form):
         PrependedText('phone', '<i class="glyphicon glyphicon-earphone"></i>',placeholder='415-555-1234'),
         'category',
         'audience_level',
+        'meetup_talk',
         PrependedText('speaker_bio', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Speaker Bio'),
         PrependedText('talk_title', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Talk Title'),
         PrependedText('description', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Description'),
         PrependedText('abstract', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Abstract'),
         PrependedText('what_will_attendees_learn', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='This is for the reviewers, the info here will not be published.'),
         PrependedText('speaker_and_talk_history', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Anything else we should know about you and your speaking experience. Will you have a co-presenter?'),
+        PrependedText('links_to_past_talks', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Any prior talk links for video you would like to include?'),
 
     )
 
@@ -103,6 +107,15 @@ class CallForProposalForm(forms.Form):
             audience_level=data['audience_level'],
             speaker=speaker,
             category=data['category'],
-            what_will_attendees_learn=data['what_will_attendees_learn']
+            what_will_attendees_learn=data['what_will_attendees_learn'],
+            first_name=data['first_name'],
+            last_name=data['last_name'],
+            email=data['email'],
+            website=data['website'],
+            phone=data['phone'],
+            speaker_bio=data['speaker_bio'],
+            speaker_and_talk_history=data['speaker_and_talk_history'],
+            meetup_talk=data['meetup_talk'],
+            links_to_past_talks=data['links_to_past_talks'],
         )
         return speaker, proposal

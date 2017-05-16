@@ -15,6 +15,16 @@ class Proposal(ProposalBase):
         (AUDIENCE_LEVEL_EXPERIENCED, "Experienced"),
     ]
 
+    MEETUP_CHOICE_YES = 1
+    MEETUP_CHOICE_MAYBE =2
+    MEETUP_CHOICE_NO = 3
+
+    MEETUP_CHOICES = [
+         (MEETUP_CHOICE_YES, "Yes"),
+         (MEETUP_CHOICE_MAYBE, "Maybe"),
+         (MEETUP_CHOICE_NO, "No")
+    ]
+
     CATEGORY_CHOICES = [
         "Fundamentals",
         "Language Internals",
@@ -39,6 +49,15 @@ class Proposal(ProposalBase):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=100)
     talk_links = models.CharField(choices=CATEGORY_CHOICES, max_length=200)
     what_will_attendees_learn = models.TextField()
+    first_name = models.CharField(default= "default_name", max_length=100)
+    last_name = models.CharField(default= "default_last_name", max_length=100)
+    email = models.CharField(default="default_email@gmail.com", max_length=100)
+    website = models.CharField(default= "www.default.com", max_length=100)
+    phone = models.CharField(default=9999999999,max_length=20)
+    speaker_bio = models.TextField(default= "default speaker bio")
+    speaker_and_talk_history = models.TextField(default= "default speaker history")
+    meetup_talk = models.CharField(choices=MEETUP_CHOICES, max_length=100, default="No")
+    links_to_past_talks = models.CharField(default="N/A", max_length=100)
 
     class Meta:
         abstract = True
