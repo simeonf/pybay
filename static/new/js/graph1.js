@@ -1,13 +1,15 @@
 //data
-	var label2= ['','Student','Individual Contributer','Contributes to Open Source', 'Open to Job Opportunities', 'Working Professional', 'Leadership Experience', 'Presented at Conferences','Presented at Conferences'];
+	var label2= ['','Student','Individual Contributer','Contributes to Open Source', 'Open to Job Opportunities', 'Working Professional', 'Leadership Experience', 'Presented at Conferences','Publish Tech Blogs or Books'];
 
 	var people2 = [36,145,111,141,394,145,123,58];
-	//////////////////////
+
+	///////////////////////
 	// Graph 2
-	//////////////////////
+	///////////////////////
+
 
 	//color
-	var colors2 = ['#0000b4'];
+	var colors2 = ['#32648E'];
 
 	var grid2 = d3.range(25).map(function(i){
 		return {'x1':0,'y1':0,'x2':0,'y2':320};
@@ -36,7 +38,7 @@
 
 	var grids2 = canvas2.append('g')
 					  .attr('id','grid2')
-					  .attr('transform','translate(150,10)')
+					  .attr('transform','translate(200,10)')
 					  .selectAll('line')
 					  .data(grid2)
 					  .enter()
@@ -63,17 +65,17 @@
 			.tickValues(d3.range(17));
 
 	var y_xis2 = canvas2.append('g')
-					  .attr("transform", "translate(150,0)")
+					  .attr("transform", "translate(200,-6)")
 					  .attr('id','yAxis2')
 					  .call(yAxis2);
 
 	var x_xis2 = canvas2.append('g')
-					  .attr("transform", "translate(150,320)")
+					  .attr("transform", "translate(200,320)")
 					  .attr('id','xAxis2')
 					  .call(xAxis2);
 
 	var chart2 = canvas2.append('g')
-						.attr("transform", "translate(150,0)")
+						.attr("transform", "translate(200,0)")
 						.attr('id','bars')
 						.selectAll('rect')
 						.data(people2)

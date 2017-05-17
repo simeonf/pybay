@@ -2,23 +2,19 @@
 #id_first_name, #id_last_name, #id_email, #id_phone, #id_website {
     width: 300px;
     border: 1px solid #bfbfbf;
-    box-shadow: 8px 5px 5px #dedede;
 }
 #id_category, #id_audience_level {
     width: 340px;
     border: 1px solid #bfbfbf;
-    box-shadow: 8px 5px 5px #dedede;
 }
 #id_talk_title{
     width: 400px;
     border: 1px solid #bfbfbf;
-    box-shadow: 8px 4px 4px #dedede;
 }
-#id_description, #id_speaker_bio, #id_abstract, #id_what_will_attendees_learn, #id_speaker_and_talk_history {
+#id_description, #id_speaker_bio, #id_abstract, #id_what_will_attendees_learn, #id_speaker_and_talk_history, #id_links_to_past_talks {
     width: 400px;
     height: 200px;
     border: 1px solid #bfbfbf;
-    box-shadow: 8px 5px 5px #dedede;
 }
 /* Call For proposals Form End */
 .form-control.textarea {
@@ -186,7 +182,11 @@ h1 {
     .pricely-professional li.list-group-item {
         text-align: center;
     }
-
+    @media screen (max-width:1199px) and (min-width: 992px) {
+        input#id_meetup_talk_1 {
+            background: red!important;
+        }
+    }
 
 @media screen and (min-width:0\0) { /* Specific to IE */
 
@@ -268,4 +268,67 @@ table tr {
 #pie1 {
     width: 100%;
     margin-left: 8%;
+}
+input#mce-EMAIL.form-email.signup-email-field{
+    width: 235px;
+    height: 48px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+}
+.form-email.signup-email-field::placeholder {
+    color: white;
+    font-size: 16px;
+    margin: 0px auto;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+div.counter-box {
+    position: relative;
+}
+span.count {
+    margin: 0;
+    position: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#FBBD4A;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 100px;
+}
+p.title {
+    margin: 0;
+    position: block;
+    top: 50%;
+    left: 50%;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FBBD4A;
+}
+section.topics.duplicatable-content{
+    padding-top: 150px;
+}
+section.topics.duplicatable-content.home-page {
+    padding-top: 72px;
+
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

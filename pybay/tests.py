@@ -23,19 +23,22 @@ class CfpFormTestCase(TestCase):
             'description': 'wooo',
             'abstract': 'wooo',
             'what_will_attendees_learn': 'wooo',
-            'speaker_and_talk_history': 'wooo',
+            'speaker_and_talk_history': 'wooo2',
+            'meetup_talk': '1',
+            'links_to_past_talks': 'http://google.com',
         }
 
     def test_cfp_form_works(self):
         form = CallForProposalForm(self._get_data())
         self.assertTrue(form.is_valid())
         self.assertEqual(
-            len(form.cleaned_data), 13
+            len(form.cleaned_data), 15
         )
 
     def test_cannot_ommit_fields(self):
         all_fields = set(self._get_data().keys())
         all_fields.remove('website')
+        all_fields.remove('links_to_past_talks')
 
         for field_name in all_fields:
             data = self._get_data()
@@ -52,6 +55,8 @@ class CfpFormTestCase(TestCase):
         speaker, proposal = form.save_to_models()
         self.assertEqual(speaker.name, "Daniel Pyrathon")
         self.assertEqual(proposal.speaker, speaker)
+        self.assertEqual(proposal.speaker_and_talk_history, 'wooo2')
+        self.assertEqual(proposal.talk_links, 'http://google.com')
         self.assertEqual(speaker.user.username, "pirosb3@gmail.com")
 
     def test_form_duplicate_profile(self):

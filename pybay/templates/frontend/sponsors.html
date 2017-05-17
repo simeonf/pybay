@@ -1,47 +1,10 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 
-{% block sliders %}
-    <li class="hero-slide">
-        <div class="background-image-holder parallax-background">
-            <img class="background-image" alt="Background Image" src="{% static 'new/img/sponsor_slider1.jpg' %}">
-        </div>
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
-                    </div>
-            </div><!--end of row-->
-        </div><!--end of container-->
-    </li>
-    <li class="hero-slide">
-        <div class="background-image-holder parallax-background">
-                <img class="background-image" alt="Background Image" src="{% static 'new/img/ch7.jpg' %}">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
-                </div>
-            </div><!--end of row-->
-        </div><!--end of container-->
-    </li>
-        <li class="hero-slide">
-            <div class="background-image-holder parallax-background">
-                <img class="background-image" alt="Background Image" src="{% static 'new/img/cdbg.jpg' %}">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <h1 class="large-h1 text-white">Bringing together Python's most forward thinking innovators &amp; developers.</h1>
-                    </div>
-                </div><!--end of row-->
-            </div><!--end of container-->
-         </li>
-{% endblock sliders %}
 {% block content %}
 <!-- Why Sponsor Starts -->
 <a id="about" class="in-page-link"></a>
+
 <section class="topics duplicatable-content">
     <div class="container">
         <div class="row">
@@ -50,41 +13,41 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-5 col-sm-6 col-md-offset-1">
                 <div class="topic">
                     <i class="pe-7s-graph1"> </i>
                     <h3 class="blue-header"><strong>Maximize your ROI</strong></h3>
                     <p class="lead">
-                        if your target audience is Python Developers in San Franciso Bay Area, there is no better dev gathering to promote your company.
+                        if your target audience is Python Developers in the San Francisco Bay Area, there is no better dev gathering to promote your company.
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-5 col-sm-6 col-md-offset-1">
                 <div class="topic">
                     <i class="pe-7s-paper-plane"> </i>
                     <h3 class="blue-header"><strong>Elevate your brand</strong></h3>
                     <p class="lead">
-                        Sponsoring companies and attendees are among the most innovative and forward thinking in the Python ecosystems.
+                        Sponsoring companies and attendees are among the most innovative and forward thinking in the Python ecosystem.
                     </p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-5 col-sm-6 col-md-offset-1">
                 <div class="topic">
                     <i class="pe-7s-micro"> </i>
                     <h3 class="blue-header"><strong>Get the word out</strong></h3>
                     <p class="lead">
-                        Higher level sponsorships offers more creative options to interact with devs to promote your product, technology, or network for your next hire.
+                        Higher level sponsorships offer more creative options to interact with devs to promote your product or technology or to network for your next hire.
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-5 col-sm-6 col-md-offset-1">
                 <div class="topic">
                     <i class="pe-7s-cup"> </i>
-                    <h3 class="blue-header"><strong>Be a hero for the community</strong></h3>
+                    <h3 class="blue-header"><strong>Be a Community hero</strong></h3>
                     <p class="lead">
-                        Your sponsorship dollar also supports SF Python who produce 20+ donation based educational events a year, and a local charity chosen by the attendees.
+                        Your sponsorship dollars also support SF Python, which produces 20+ donation-based educational events a year, as well as a local charity chosen by the conference attendees.
                     </p>
                 </div>
             </div>
@@ -99,13 +62,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 offset-4">
+            <div class="col-md-12 offset-3">
+                <p align ="right">*Data from 500+ registered guest at PyBay 2016</p>
+                <h4><center>Participant's Background</center></h4>
                  <div id="barchart1" width="500" height="300"></div>
+
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 offset-3">
-                <div>'
+            <div class="col-md-12 offset-4">
+                <div>
+
+                    <h4><center>Participant's Skills & Interest</center></h4>
                     <div id="barchart2" width="500" height="300"></div>
 
                 </div>
