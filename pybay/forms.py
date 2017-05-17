@@ -106,5 +106,7 @@ class CallForProposalForm(forms.Form):
             category=data['category'],
             what_will_attendees_learn=data['what_will_attendees_learn'],
             meetup_talk=data['meetup_talk'],
+            speaker_and_talk_history=data['speaker_and_talk_history'],
+            talk_links=data['links_to_past_talks'],
         )
         return speaker, proposal

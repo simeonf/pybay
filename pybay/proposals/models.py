@@ -50,6 +50,7 @@ class Proposal(ProposalBase):
     talk_links = models.CharField(max_length=200)
     what_will_attendees_learn = models.TextField()
     meetup_talk = models.CharField(choices=MEETUP_CHOICES, max_length=100, default="No")
+    speaker_and_talk_history = models.TextField()
 
     class Meta:
         abstract = True
