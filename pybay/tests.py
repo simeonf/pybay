@@ -24,13 +24,14 @@ class CfpFormTestCase(TestCase):
             'abstract': 'wooo',
             'what_will_attendees_learn': 'wooo',
             'speaker_and_talk_history': 'wooo',
+            'meetup_talk': '1',
         }
 
     def test_cfp_form_works(self):
         form = CallForProposalForm(self._get_data())
         self.assertTrue(form.is_valid())
         self.assertEqual(
-            len(form.cleaned_data), 13
+            len(form.cleaned_data), 15
         )
 
     def test_cannot_ommit_fields(self):

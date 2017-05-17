@@ -10,8 +10,8 @@ from symposion.proposals.models import ProposalKind
 from pybay.proposals.models import TalkProposal
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+from crispy_forms.layout import Layout
+from crispy_forms.bootstrap import PrependedText
 
 class CallForProposalForm(forms.Form):
     first_name = forms.CharField(label='First Name', max_length=100)
@@ -21,8 +21,8 @@ class CallForProposalForm(forms.Form):
     phone = forms.CharField(label='Phone', max_length=20)
     category = forms.ChoiceField(choices=TalkProposal.CATEGORY_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
-    meetup_talk = forms.ChoiceField(widget=forms.RadioSelect,label="Deliver talk @ future SF Python Meetups if we cannot fit you in the PyBay program?", choices=TalkProposal.MEETUP_CHOICES)
     speaker_bio = forms.CharField(widget=forms.Textarea)
+    meetup_talk = forms.ChoiceField(widget=forms.RadioSelect,label="Deliver talk @ future SF Python Meetups if we cannot fit you in the PyBay program?", choices=TalkProposal.MEETUP_CHOICES)
     talk_title = forms.CharField(label='Talk Title', max_length=100)
     description = forms.CharField(widget=forms.Textarea)
     abstract = forms.CharField(widget=forms.Textarea)
@@ -93,8 +93,6 @@ class CallForProposalForm(forms.Form):
                 user=user,
                 name=full_name,
                 biography=data['speaker_bio'],
-                # github_account=data['website'],
-                # phone_number=data['phone'],
             )
 
         # Create a new talk
@@ -107,14 +105,6 @@ class CallForProposalForm(forms.Form):
             speaker=speaker,
             category=data['category'],
             what_will_attendees_learn=data['what_will_attendees_learn'],
-            first_name=data['first_name'],
-            last_name=data['last_name'],
-            email=data['email'],
-            website=data['website'],
-            phone=data['phone'],
-            speaker_bio=data['speaker_bio'],
-            speaker_and_talk_history=data['speaker_and_talk_history'],
             meetup_talk=data['meetup_talk'],
-            links_to_past_talks=data['links_to_past_talks'],
         )
         return speaker, proposal
