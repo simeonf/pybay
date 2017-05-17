@@ -10,8 +10,8 @@ from symposion.proposals.models import ProposalKind
 from pybay.proposals.models import TalkProposal
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+from crispy_forms.layout import Layout
+from crispy_forms.bootstrap import PrependedText
 
 class CallForProposalForm(forms.Form):
     first_name = forms.CharField(label='First Name', max_length=100)
@@ -22,11 +22,13 @@ class CallForProposalForm(forms.Form):
     category = forms.ChoiceField(choices=TalkProposal.CATEGORY_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
     speaker_bio = forms.CharField(widget=forms.Textarea)
+    meetup_talk = forms.ChoiceField(widget=forms.RadioSelect,label="Deliver talk @ future SF Python Meetups if we cannot fit you in the PyBay program?", choices=TalkProposal.MEETUP_CHOICES)
     talk_title = forms.CharField(label='Talk Title', max_length=100)
     description = forms.CharField(widget=forms.Textarea)
     abstract = forms.CharField(widget=forms.Textarea)
     what_will_attendees_learn = forms.CharField(widget=forms.Textarea)
     speaker_and_talk_history = forms.CharField(widget=forms.Textarea)
+    links_to_past_talks = forms.CharField(widget=forms.Textarea, label="Links to slide deck/talk video", max_length=100, required=False)
 
     helper = FormHelper()
     helper.form_class = 'form-horizontal'
@@ -36,17 +38,18 @@ class CallForProposalForm(forms.Form):
         PrependedText('first_name', '<i class="glyphicon glyphicon-user"></i>', placeholder='First Name'),
         PrependedText('last_name', '<i class="glyphicon glyphicon-user"></i>',placeholder='Last Name'),
         PrependedText('email', '<i class="glyphicon glyphicon-envelope"></i>',placeholder='   Email'),
-        PrependedText('website', '<i class="glyphicon glyphicon-globe"></i>',placeholder='  Website'),
+        PrependedText('website', '<i class="glyphicon glyphicon-globe"></i>',placeholder='  Home Page'),
         PrependedText('phone', '<i class="glyphicon glyphicon-earphone"></i>',placeholder='415-555-1234'),
         'category',
         'audience_level',
         PrependedText('speaker_bio', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Speaker Bio'),
         PrependedText('talk_title', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Talk Title'),
-        PrependedText('description', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Description'),
+        PrependedText('description', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Please limit the descrtiption to 400 characters'),
         PrependedText('abstract', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Abstract'),
-        PrependedText('what_will_attendees_learn', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='This is for the reviewers, the info here will not be published.'),
+        PrependedText('what_will_attendees_learn', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='This is for the reviewers, the info here will not be published'),
         PrependedText('speaker_and_talk_history', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='Anything else we should know about you and your speaking experience. Will you have a co-presenter?'),
-
+        PrependedText('links_to_past_talks', '<i class="glyphicon glyphicon-pencil"></i>', placeholder='If you already have your slide deck for this talk, or if you have slide deck or video to past talks, please add the URLs here'),
+        'meetup_talk',
     )
 
     def clean_talk_title(self):
@@ -90,8 +93,6 @@ class CallForProposalForm(forms.Form):
                 user=user,
                 name=full_name,
                 biography=data['speaker_bio'],
-                # github_account=data['website'],
-                # phone_number=data['phone'],
             )
 
         # Create a new talk
@@ -103,6 +104,9 @@ class CallForProposalForm(forms.Form):
             audience_level=data['audience_level'],
             speaker=speaker,
             category=data['category'],
-            what_will_attendees_learn=data['what_will_attendees_learn']
+            what_will_attendees_learn=data['what_will_attendees_learn'],
+            meetup_talk=data['meetup_talk'],
+            speaker_and_talk_history=data['speaker_and_talk_history'],
+            talk_links=data['links_to_past_talks'],
         )
         return speaker, proposal
