@@ -1,0 +1,334 @@
+/* Call For proposals Form Start */
+#id_first_name, #id_last_name, #id_email, #id_phone, #id_website {
+    width: 300px;
+    border: 1px solid #bfbfbf;
+}
+#id_category, #id_audience_level {
+    width: 340px;
+    border: 1px solid #bfbfbf;
+}
+#id_talk_title{
+    width: 400px;
+    border: 1px solid #bfbfbf;
+}
+#id_description, #id_speaker_bio, #id_abstract, #id_what_will_attendees_learn, #id_speaker_and_talk_history, #id_links_to_past_talks {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #bfbfbf;
+}
+/* Call For proposals Form End */
+.form-control.textarea {
+   color: black;
+   font-size: 16px;
+}
+
+.form-control.textinput,#id_email.emailinput, #id_speaker_bio.speakerbioinput,#id_website.urlinput {
+    -moz-box-sizing: border-box;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    color: black;
+}
+#id_email.emailinput,#id_website.urlinput {
+    width: 300px;
+    height: 100%;
+}
+
+h1 {
+    color: #32648e;
+}
+.blue-header{
+    color: #32648e;
+}
+/* SPONSOR PAGE PRICING TABLE */
+
+/* Headings */
+.pricely-chart .panel-heading {
+    font-size: 22px;
+    margin: 0;
+    padding: 30px 20px;
+    text-align: center;
+    background: #f5f5f5;
+    height: 130px;
+}
+
+.pricely-chart-one h3 span {
+    display: block;
+    font-size: 13px; font-weight: 300;
+    letter-spacing: 0.5px;
+    padding: 5px 0 0;
+    text-transform: uppercase;
+}
+
+.pricely-label {
+    display: block;
+    font-size: 18px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0 auto 10px;
+    text-transform: uppercase;
+}
+/* Features */
+.pricely-first-heading .pricely-label {
+    font-weight: 600;
+
+
+}
+.pricely-figure {
+    padding: 5px 0 5px;
+    position: relative;
+}
+.pricely-currency {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    position: absolute;
+    top: 7px;
+}
+.pricely-amount {
+    display: inline-block;
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    line-height: 5px;
+    padding: 0 0 0 17px;
+}
+/*Select your plan section*/
+.pricely-foreword {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    padding: 0;
+}
+.pricely-paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px;
+    text-align: left;
+}
+
+/* Icons */
+.pricely-pro .glyphicon {
+    display: block;
+    text-align: center;
+}
+.pricely-pro .glyphicon {
+    color: #428bca;
+}
+
+
+/*===== Price Chart Specific =====*/
+
+    .pricely-pro .panel-heading {
+        border-radius: 0;
+        min-height: 130px;
+    }
+
+    .pricely-pro li li.list-group-item {
+        border-left-width: 1px;
+        border-radius: 0;
+        min-height: 46px;
+    }
+    .pricely-pro li li.list-group-item:nth-child(even) {
+
+        background: #f5f5f5;
+    }
+    /*Additional row colums */
+    .pricely-pro li li.list-group-item:nth-last-child(1) {
+        background: #fef8eb;
+    }
+    .pricely-pro li.pricely-first-heading li.list-group-item {
+        border-left-width: 2px;
+        border-radius: 0;
+        min-height: 46px;
+
+    }
+
+    .pricely-pro {
+        list-style: none;
+         margin: 0;
+         padding: 0;
+     }
+
+    .pricely-pro li.pricely-first-heading, .pricely-pro li.pricely-inner
+    {
+        padding: 0;
+    }
+
+    .pricely-pro .panel-heading {
+        border-right: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        background: #FBBD4A;
+    }
+
+    .pricely-pro li:first-child .panel-heading {
+        border-left: 1px solid #ddd;
+        background: #428bca;
+
+    }
+
+    .pricely-professional li.list-group-item  .feature-hide {
+        display: none;
+    }
+    .pricely-professional li .glyphicon {
+        display: inline-block;
+    }
+    .pricely-professional li  .pricely-paragraph .glyphicon {
+        display: block;
+    }
+    .pricely-professional li.list-group-item {
+        text-align: center;
+    }
+    @media screen (max-width:1199px) and (min-width: 992px) {
+        input#id_meetup_talk_1 {
+            background: red!important;
+        }
+    }
+
+@media screen and (min-width:0\0) { /* Specific to IE */
+
+    .pricely-currency {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 400;
+        position: relative;
+        top: -30px;
+    }
+    .pricely-amount {
+        font-size: 18px;
+        line-height: 65px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .pricely-pro li li.list-group-item {
+        border-left-width: 1px;
+        text-align: center;
+    }
+
+    .pricely-chart .panel-heading {
+        padding: 15px 10px;
+        background: #428bca;
+    }
+
+    .pricely-pro .panel-heading {
+        border-left: 1px solid #ddd;
+        min-height: inherit;
+    }
+
+    .pricely-professional li.list-group-item .feature-hide {
+        display: inline;
+        padding: 0 0 0 10px;
+    }
+
+    .pricely-pro li.pricely-first-heading {
+        display: none;
+    }
+
+    .pricely-pro .glyphicon {
+        display: none !important;
+    }
+
+    .pricely-foreword, .pricely-label {
+        display: inline-block;
+        margin: 0;
+    }
+    .pricely-foreword:before {
+        content: " ";
+    }
+
+}
+table th {
+    width: 185px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    color: #ffffff;
+}
+tr {
+    border: 1px solid #ccc;
+}
+ .last-column{
+  border-right: none;
+}
+table tr {
+    background: #428bca;
+}
+.first-column {
+    background: #FBBD4A;
+    color: black;
+}
+
+.tickets {
+    margin-top: 40px;
+}
+#pie1 {
+    width: 100%;
+    margin-left: 8%;
+}
+input#mce-EMAIL.form-email.signup-email-field{
+    width: 235px;
+    height: 48px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    color: black;
+}
+.form-email.signup-email-field::placeholder {
+    color: white;
+    font-size: 16px;
+    margin: 0px auto;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+div.counter-box {
+    position: relative;
+}
+span.count {
+    margin: 0;
+    position: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#FBBD4A;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 100px;
+}
+p.title {
+    margin: 0;
+    position: block;
+    top: 50%;
+    left: 50%;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FBBD4A;
+}
+section.topics.duplicatable-content{
+    padding-top: 150px;
+}
+section.topics.duplicatable-content.home-page {
+    padding-top: 72px;
+
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
