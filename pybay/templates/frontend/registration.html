@@ -16,7 +16,7 @@
                     <i class="pe-7s-like2 icon-large"></i>
                     <h3 class="blue-header"><strong>Corporate Pass</strong></h3>
                     <p class="lead">
-                         We love employers who support their employees’ continuous education. If your company sends 20% or more of your engineering team or 10 or more developers to PyBay at the corporate rate, we'll feature your company's logo among PyBay Supporters!</p>
+                         We love employers who support their employees’ continuous education. If your company sends 20% or more of your engineering team or 10 or more developers to PyBay at the corporate rate, we'll feature your company's logo among Python Supporters!</p>
 
                 </div>
             </div>
@@ -73,6 +73,32 @@
         </div>
     </div>
 
+{% block python-corps %}
+<section>
+    <div style="margin-bottom: 100px;" class="row">
+        <div class="col-xm-12 text-center">
+            <h1>Committed to Your Education</h1>
+            <div class="container">
+                <div class="row">
+                    <!-- repeat this div below for other logos -->
+                    <div class="col-md-6 col-md-2">
+                        <a href="http://www.sfpython.org">
+                            <img class="img-responsive" src="{% static 'new/img/sfpython_transparent.png' %}"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p>These companies use Python, and support their employees continuing education. Interested in listing your company here? <a class="inner-link" href="{% url 'pybay_faq' %}">Get in touch.</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock python-corps %}
+
 <!--Conference Venue Starts -->
 <section class="duplicatable-content visitor-info">
     <div class="container">
@@ -110,18 +136,4 @@
 {% endblock content %}
 
 {% block subscribe %}
-
 {% endblock subscribe %}
-{% block pythonfans %}
-<section>
-    <div style="margin-bottom: 100px;" class="row">
-        <div class="col-sm-12 text-center">
-            <h1>Proudly Sponsored By</h1>
-        </div>
-        <div class="col-sm-8"></div>
-        <div class="col-sm-12 text-center">
-            <p>Interested in becoming a sponsor? <a href={% url 'pybay_sponsors' %}>Check out our Options</a></p>
-        </div>
-    </div>
-</section>
-{% endblock pythonfans %}
