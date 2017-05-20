@@ -23,7 +23,7 @@ urlpatterns = [
     url(r"^sponsors$", TemplateView.as_view(template_name="frontend/sponsors.html"), name="pybay_sponsors"),
     url(r"^code-of-conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
     url(r"^coc-reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
-    url(r"^tickets$", TemplateView.as_view(template_name="frontend/tickets.html"), name="pybay_tickets"),
+    url(r"^registration$", TemplateView.as_view(template_name="frontend/registration.html"), name="pybay_tickets"),
     url(r"^faq$", pybay_faq_index, name="pybay_faq"),
 
     url(r"^admin/", include(admin.site.urls)),
