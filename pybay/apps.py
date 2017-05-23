@@ -7,4 +7,4 @@ class AppConfig(BaseAppConfig):
     name = "pybay"
 
     def ready(self):
-        import_module("pybay\.receivers")
+        import_module("pybay.receivers")
