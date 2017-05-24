@@ -34,7 +34,8 @@
 
 	var canvas2 = d3.select('#barchart2')
 					.append('svg')
-					.attr({'width':900,'height':480});
+					.attr("viewBox", "0 0 900 480")
+  					.attr("preserveAspectRatio", "xMinYMin meet");
 
 	var grids2 = canvas2.append('g')
 					  .attr('id','grid2')
