@@ -105,6 +105,7 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.auth.middleware.SessionAuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "rollbar.contrib.django.middleware.RollbarNotifierMiddleware",
 ]
 
 ROOT_URLCONF = "pybay.urls"
@@ -223,3 +224,16 @@ PROPOSAL_FORMS = {
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 SHOW_SPEAKERS_LIST_NAVBAR_LINK = False
+
+with open('/home/pybay/rollbar.txt') as f:
+    rollbar_token = f.read().strip()
+
+ROLLBAR = {
+    'access_token': rollbar_token,
+    'environment': 'development' if DEBUG else 'production',
+    'root': BASE_DIR,
+}
+
+# Intentially added below the ROLLBAR const. Please do not move
+import rollbar
+rollbar.init(**ROLLBAR)
