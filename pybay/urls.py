@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 
 from django.contrib import admin
 
@@ -20,10 +21,11 @@ WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 urlpatterns = [
     url(r"^$", TemplateView.as_view(template_name="frontend/index.html"), name="home"),
     url(r"^cfp$", pybay_cfp_create, name="pybay_cfp"),
+    url(r'^call-for-proposals$', RedirectView.as_view(pattern_name='pybay_cfp', permanent=False)),
     url(r"^sponsors$", TemplateView.as_view(template_name="frontend/sponsors.html"), name="pybay_sponsors"),
     url(r"^code-of-conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
     url(r"^coc-reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
-    url(r"^tickets$", TemplateView.as_view(template_name="frontend/tickets.html"), name="pybay_tickets"),
+    url(r"^registration$", TemplateView.as_view(template_name="frontend/registration.html"), name="pybay_tickets"),
     url(r"^faq$", pybay_faq_index, name="pybay_faq"),
 
     url(r"^admin/", include(admin.site.urls)),
