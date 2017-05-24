@@ -40,6 +40,19 @@ h1 {
 .blue-header{
     color: #32648e;
 }
+.text-center h1 {
+    color: black;
+}
+
+
+/* FAQ boxes */
+.faq-box .more-link {
+  text-align: center;
+}
+p.question {
+    color: #32648e;
+}
+
 /* SPONSOR PAGE PRICING TABLE */
 
 /* Headings */

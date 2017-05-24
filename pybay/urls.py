@@ -13,21 +13,26 @@ from symposion.sponsorship import urls as sponsor_urls
 from symposion.speakers import urls as speaker_urls
 
 from pybay.views import (
-    pybay_cfp_create, pybay_sponsors_list,
-    pybay_faq_index, pybay_speakers_list)
+    pybay_cfp_create,
+    pybay_sponsors_list, pybay_speakers_list,
+    pybay_faq_index, FaqTemplateView
+)
 
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 
 
+faq_view = FaqTemplateView.as_view
+
+
 urlpatterns = [
-    url(r"^$", TemplateView.as_view(template_name="frontend/index.html"), name="home"),
+    url(r"^$", faq_view(template_name="frontend/index.html", faq_filter="show_on_home"), name="home"),
     url(r"^cfp$", pybay_cfp_create, name="pybay_cfp"),
     url(r'^call-for-proposals$', RedirectView.as_view(pattern_name='pybay_cfp', permanent=False)),
-    url(r"^sponsors$", TemplateView.as_view(template_name="frontend/sponsors.html"), name="pybay_sponsors"),
+    url(r"^sponsors$", faq_view(template_name="frontend/sponsors.html", faq_filter="show_on_sponsors"), name="pybay_sponsors"),
     url(r"^code-of-conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
     url(r"^coc-reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
-    url(r"^registration$", TemplateView.as_view(template_name="frontend/registration.html"), name="pybay_tickets"),
+    url(r"^registration$", faq_view(template_name="frontend/registration.html", faq_filter="show_on_registration"), name="pybay_tickets"),
     url(r"^faq$", pybay_faq_index, name="pybay_faq"),
 
     url(r"^admin/", include(admin.site.urls)),
