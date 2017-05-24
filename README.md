@@ -1,5 +1,7 @@
 # pybay
 
+[![Build Status](https://travis-ci.org/pybay/pybay.svg)](https://travis-ci.org/pybay)
+
 The website for PyBay - the Bay Area Python Conference.
 
 To work on this you'll need Python 3. Then:
