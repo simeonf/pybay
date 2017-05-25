@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from .forms import CallForProposalForm
-from pybay.faqs.models import Faq
+from pybay.faqs.models import Faq, Category
 from symposion.sponsorship.models import Sponsor
 from pybay.proposals.models import Proposal
 
@@ -24,8 +24,8 @@ def pybay_sponsors_list(request):
 
 
 def pybay_faq_index(request):
-    faqs = Faq.objects.order_by('ordering').all()
-    return render(request, 'frontend/faq.html', {'faqs': faqs})
+    faqs = Category.objects.faqs_per_category()
+    return render(request, 'frontend/faq.html', {'faq_categories': faqs})
 
 
 class FaqTemplateView(TemplateView):
