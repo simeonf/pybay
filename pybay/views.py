@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from .forms import CallForProposalForm
 from pybay.faqs.models import Faq
@@ -25,6 +26,23 @@ def pybay_sponsors_list(request):
 def pybay_faq_index(request):
     faqs = Faq.objects.order_by('ordering').all()
     return render(request, 'frontend/faq.html', {'faqs': faqs})
+
+
+class FaqTemplateView(TemplateView):
+
+    faq_filter = None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        filters = {}
+        if self.faq_filter is not None:
+            filters[self.faq_filter] = True
+        context['faqs'] = (
+            Faq.objects
+            .filter(**filters)
+            .order_by('ordering')
+        )
+        return context
 
 
 def pybay_cfp_create(request):
