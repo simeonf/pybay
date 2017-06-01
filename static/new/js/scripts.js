@@ -5,7 +5,7 @@ $(document).ready(function() {
     /************** Nav Scripts **************/
 
 
-    $('a').click(function() {
+    $('a').not("#djDebug a").click(function() {
         if ($(this).attr('href') === '#') {
             return false;
         }
