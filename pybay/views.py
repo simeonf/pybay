@@ -93,3 +93,24 @@ def undecided_proposals(request):
     return HttpResponse( json.dumps({'data': result}), content_type="application/json" )
 
 
+def proposal_detail(request, proposal_id):
+    proposal = Proposal.objects.get(id=proposal_id)
+    speakers_list = []
+    for speaker in proposal.speakers():
+        speakers_list.append({"email": speaker.email, "name": speaker.name, })
+
+    details = {
+            "id": proposal.id, 
+            "description": proposal.description, 
+            "abstract": proposal.abstract, 
+            "title": proposal.title, 
+        }
+
+    result = {"speakers": speakers_list, 
+            "details": details
+            }
+
+    return HttpResponse( json.dumps({'data': result}), content_type="application/json" )
+
+
+
