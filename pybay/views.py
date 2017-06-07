@@ -1,4 +1,7 @@
+import json
+
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseForbidden
 from django.views.generic import TemplateView
 
 from .forms import CallForProposalForm
@@ -7,6 +10,7 @@ from symposion.sponsorship.models import Sponsor
 from pybay.proposals.models import Proposal
 
 from collections import defaultdict
+from django.conf import settings
 
 
 def pybay_sponsors_list(request):
@@ -79,3 +83,45 @@ def pybay_speakers_list(request):
     return render(request, 'frontend/speakers_list.html', {
         'speakers': speakers
     })
+
+def undecided_proposals(request):
+
+    api_token = request.GET.get('token')
+    if api_token != settings.PYBAY_API_TOKEN:
+        return HttpResponseForbidden()
+
+    undecided_proposals = Proposal.objects.all()
+    result = []
+    for proposal in undecided_proposals:
+        if proposal.status.lower() == "undecided":
+            result.append({'id': proposal.id})
+
+    return HttpResponse(json.dumps({'data': result}), content_type="application/json")
+
+
+def proposal_detail(request, proposal_id):
+
+    api_token = request.GET.get('token')
+    if api_token != settings.PYBAY_API_TOKEN:
+        return HttpResponseForbidden()
+
+    proposal = Proposal.objects.get(id=proposal_id)
+    speakers_list = []
+    for speaker in proposal.speakers():
+        speakers_list.append({"email": speaker.email, "name": speaker.name, })
+
+    details = {
+        "id": proposal.id,
+        "description": proposal.description,
+        "abstract": proposal.abstract,
+        "title": proposal.title,
+    }
+
+    result = {
+        "speakers": speakers_list,
+        "details": details,
+    }
+
+    return HttpResponse(
+        json.dumps({'data': result}), content_type="application/json"
+    )

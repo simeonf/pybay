@@ -15,7 +15,9 @@ from symposion.speakers import urls as speaker_urls
 from pybay.views import (
     pybay_cfp_create,
     pybay_sponsors_list, pybay_speakers_list,
-    pybay_faq_index, FaqTemplateView
+    pybay_faq_index, FaqTemplateView, 
+    undecided_proposals, 
+    proposal_detail, 
 )
 
 
@@ -53,6 +55,8 @@ urlpatterns = [
     # url(r"^markitup/", include("markitup.urls")),
     url(r"^our-sponsors$", pybay_sponsors_list, name="pybay_sponsors_list"),
     url(r"^our-speakers$", pybay_speakers_list, name="pybay_speakers_list"),
+    url(r"^api/undecided_proposals$", undecided_proposals, name="pybay_undecided_proposals"),
+    url(r"^api/proposals/(?P<proposal_id>\d+)/$", proposal_detail, name="pybay_detail_proposal"),
     url(r"^404$", TemplateView.as_view(template_name="404.html")),  # Adding explicitly for template dev purposes
     # url(r"^", include("symposion.cms.urls")),
 ]
