@@ -227,6 +227,13 @@ SHOW_SPEAKERS_LIST_NAVBAR_LINK = False
 
 DEBUG_TOOLBAR = False
 
+PYBAY_API_TOKEN = "test"
+API_TOKEN_PATH = '/home/pybay/api_token.txt'
+if not os.environ.get('TRAVIS', False) and os.path.exists(API_TOKEN_PATH):
+    with open(API_TOKEN_PATH) as f:
+        PYBAY_API_TOKEN = f.read().strip() or PYBAY_API_TOKEN
+
+
 ROLLBAR_PATH = '/home/pybay/rollbar.txt'
 if not os.environ.get('TRAVIS', False) and os.path.exists(ROLLBAR_PATH):
     with open(ROLLBAR_PATH) as f:
