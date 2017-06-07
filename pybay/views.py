@@ -1,4 +1,7 @@
+import json
+
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 from .forms import CallForProposalForm
@@ -79,3 +82,14 @@ def pybay_speakers_list(request):
     return render(request, 'frontend/speakers_list.html', {
         'speakers': speakers
     })
+
+def undecided_proposals(request):
+    undecided_proposals = Proposal.objects.all()
+    result = []
+    for proposal in undecided_proposals:
+        if proposal.status == "Undecided":
+            result.append({'id': proposal.id})
+
+    return HttpResponse( json.dumps({'data': result}), content_type="application/json" )
+
+
