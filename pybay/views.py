@@ -87,7 +87,7 @@ def undecided_proposals(request):
     undecided_proposals = Proposal.objects.all()
     result = []
     for proposal in undecided_proposals:
-        if proposal.status == "Undecided":
+        if proposal.status.lower() == "undecided":
             result.append({'id': proposal.id})
 
     return HttpResponse( json.dumps({'data': result}), content_type="application/json" )
