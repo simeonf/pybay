@@ -79,7 +79,6 @@ class CallForProposalForm(forms.Form):
         full_name = "{} {}".format(data['first_name'], data['last_name'])
         try:
             user = User.objects.get(username=data['email'])
-            speaker = user.speaker_profile
         except User.DoesNotExist:
 
             # Create a new user
@@ -89,6 +88,10 @@ class CallForProposalForm(forms.Form):
                 email=data['email'],
                 password=password,
             )
+
+        try:
+            speaker = user.speaker_profile
+        except Speaker.DoesNotExist:
 
             # Create an associated speaker
             speaker = Speaker.objects.create(
