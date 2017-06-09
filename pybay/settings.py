@@ -5,6 +5,8 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
+ADMINS = [('Simeon', 'simeonf@gmail.com')]
+
 DEBUG = True
 EMAIL_DEBUG = DEBUG
 
@@ -164,6 +166,11 @@ INSTALLED_APPS = [
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+    'formatters': {
+        'verbose': {
+          'format': '%(asctime)s\n%(message)s'
+        },
+    },
     "filters": {
         "require_debug_false": {
             "()": "django.utils.log.RequireDebugFalse"
