@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from .forms import CallForProposalForm
 from pybay.faqs.models import Faq, Category
 from symposion.sponsorship.models import Sponsor
-from pybay.proposals.models import Proposal
+from pybay.proposals.models import Proposal, TalkProposal, TutorialProposal
 
 from collections import defaultdict
 from django.conf import settings
@@ -107,7 +107,7 @@ def proposal_detail(request, proposal_id):
     if api_token != settings.PYBAY_API_TOKEN:
         return HttpResponseForbidden()
 
-    proposal = Proposal.objects.get(id=proposal_id)
+    proposal = TalkProposal.objects.get(id=proposal_id)
     speakers_list = []
     for speaker in proposal.speakers():
         speakers_list.append({"email": speaker.email, "name": speaker.name, })
@@ -116,7 +116,15 @@ def proposal_detail(request, proposal_id):
         "id": proposal.id,
         "description": proposal.description,
         "abstract": proposal.abstract,
+        "additional_notes": proposal.additional_notes,
         "title": proposal.title,
+        "audience_level": TalkProposal.AUDIENCE_LEVELS[proposal.audience_level][1],
+        "category": proposal.category,
+        "what_will_attendees_learn": proposal.what_will_attendees_learn,
+        # "title": proposal.talk_links,
+        # "title": proposal.meetup_talk,
+        # "title": proposal.speaker_and_talk_history,
+
     }
 
     result = {
