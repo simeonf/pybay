@@ -30,8 +30,9 @@ faq_view = FaqTemplateView.as_view
 urlpatterns = [
     url(r"^$", faq_view(template_name="frontend/index.html", faq_filter="show_on_home"), name="home"),
     url(r"^cfp$", pybay_cfp_create, name="pybay_cfp"),
-    url(r'^call-for-proposals$', RedirectView.as_view(pattern_name='pybay_cfp', permanent=False)),
-    url(r"^sponsors/prospectus$", faq_view(template_name="frontend/sponsors_prospectus.html", faq_filter="show_on_sponsors"), name="pybay_sponsors"),
+    url(r'^call-for-proposals/$', RedirectView.as_view(pattern_name='pybay_cfp', permanent=False)),
+    url(r"^sponsors-prospectus/$", faq_view(template_name="frontend/sponsors_prospectus.html", faq_filter="show_on_sponsors"), name="pybay_sponsors"),
+    url(r'^sponsors/$', RedirectView.as_view(pattern_name='pybay_sponsors', permanent=False)),
     url(r"^code-of-conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
     url(r"^coc-reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
     url(r"^registration$", faq_view(template_name="frontend/registration.html", faq_filter="show_on_registration"), name="pybay_tickets"),
@@ -53,8 +54,8 @@ urlpatterns = [
     # url(r"^teams/", include(teams_urls)),
     # url(r"^teams/", include("symposion.teams.urls")),
     # url(r"^markitup/", include("markitup.urls")),
-    url(r"^sponsors$", pybay_sponsors_list, name="pybay_sponsors_list"),
-    url(r"^our-speakers$", pybay_speakers_list, name="pybay_speakers_list"),
+    url(r"^our-sponsors/$", pybay_sponsors_list, name="pybay_sponsors_list"),
+    url(r"^our-speakers/$", pybay_speakers_list, name="pybay_speakers_list"),
     url(r"^api/undecided_proposals$", undecided_proposals, name="pybay_undecided_proposals"),
     url(r"^api/proposals/(?P<proposal_id>\d+)/$", proposal_detail, name="pybay_detail_proposal"),
     url(r"^404$", TemplateView.as_view(template_name="404.html")),  # Adding explicitly for template dev purposes
