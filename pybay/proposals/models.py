@@ -15,9 +15,9 @@ class Proposal(ProposalBase):
         (AUDIENCE_LEVEL_EXPERIENCED, "Experienced"),
     ]
 
-    MEETUP_CHOICE_YES = 1
-    MEETUP_CHOICE_MAYBE =2
-    MEETUP_CHOICE_NO = 3
+    MEETUP_CHOICE_YES =  "Yes"
+    MEETUP_CHOICE_MAYBE = "Maybe"
+    MEETUP_CHOICE_NO =  "No"
 
     MEETUP_CHOICES = [
          (MEETUP_CHOICE_YES, "Yes"),
