@@ -23,7 +23,7 @@ class CfpFormTestCase(TestCase):
             'abstract': 'wooo',
             'what_will_attendees_learn': 'wooo',
             'speaker_and_talk_history': 'wooo2',
-            'meetup_talk': '1',
+            'meetup_talk': 'Maybe',
             'links_to_past_talks': 'http://google.com',
         }
 
