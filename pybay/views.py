@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 from .forms import CallForProposalForm
 from pybay.faqs.models import Faq, Category
 from symposion.sponsorship.models import Sponsor
-from pybay.proposals.models import TalkProposal
+from pybay.proposals.models import TalkProposal, Proposal
 from pybay.utils import get_accepted_speaker_by_slug
 from symposion.speakers.models import Speaker
 
