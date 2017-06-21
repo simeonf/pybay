@@ -148,8 +148,7 @@ def proposal_detail(request, proposal_id):
         "what_will_attendees_learn": proposal.what_will_attendees_learn,
         # "title": proposal.talk_links,
         # "title": proposal.meetup_talk,
-        # "title": proposal.speaker_and_talk_history,
-
+        "speaker_and_talk_history": proposal.speaker_and_talk_history,
     }
 
     result = {
