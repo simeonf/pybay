@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 from .forms import CallForProposalForm
 from pybay.faqs.models import Faq, Category
 from symposion.sponsorship.models import Sponsor
-from pybay.proposals.models import TalkProposal, TutorialProposal
+from pybay.proposals.models import TalkProposal
 from pybay.utils import get_accepted_speaker_by_slug
 from symposion.speakers.models import Speaker
 
@@ -87,6 +87,7 @@ def pybay_speakers_detail(request, speaker_slug):
         log.error("Speaker %s does not have any approved talks or does not exist", speaker_slug)
         return HttpResponseNotFound()
 
+    # NOTE: Cannot perform reverse lookup (speaker.talk_proposals) for some reason.
     speaker_approved_talks = TalkProposal.objects.filter(
         speaker=speaker
     ).filter(result__status='accepted')
