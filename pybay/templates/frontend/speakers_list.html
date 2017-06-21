@@ -1,0 +1,24 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load get_speaker_url_with_fallback %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="col-md-12 no-padding clearfix">
+        <div class="page-header pull-left">
+            <h1>All Speakers</h1>
+        </div>
+    </div><!-- /.col-md-12 -->
+    
+    {% for speaker in speakers %}
+      <div class="col-md-6">
+        <img width=200 src="{% speaker_url_with_fallback speaker %}" alt="{{ speaker.name }}">
+        <h2><a href="{% url 'pybay_speakers_detail' speaker.name_slug %}">{{ speaker.name }}</a></h2>
+        <span>{{ speaker.biography|truncatechars:"300" }}</span>
+      </div>
+    {% endfor %}
+  </div><!--container -->
+</section>
+{% endblock content %}
