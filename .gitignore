@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+dev.db
+
+pybay/site_media/*
