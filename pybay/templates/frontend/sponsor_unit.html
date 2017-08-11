@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h3 class="panel-title"><a href="{{ sponsor.external_url }}" target="_blank" rel="noopener noreferrer">{{ sponsor.name }}</a></h3>
+  </div>
+  <div class="panel-body">
+      {% if sponsor.website_logo %}
+         <p><img height=100 src={{ sponsor.website_logo.url }} /></p>
+      {% endif %}
+      {{ sponsor.annotation }}
+  </div>
+</div>
+
