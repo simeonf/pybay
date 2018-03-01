@@ -1,0 +1,72 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block content %}
+{% load get_speaker_url_with_fallback %}
+{% load slot_desc %}
+{% load markup_tags %}
+
+{% block body_class %}speaker-page{% endblock %}
+
+<section>
+   <div class="container" style="padding-top: 150px;">
+     <div class="row">
+       <div class="col-sm-6 col-md-4">
+           <a href="{% speaker_url_with_fallback speaker 360 %}">
+              <div>
+                  <img class="img-responsive" height=360 alt="{{ speaker.name }}" src="{% speaker_url_with_fallback speaker 360 %}">
+              </div>
+           </a>
+       </div>
+       <div class="col-sm-6 col-md-7">
+           <h1><strong>{{ speaker.name }}</strong></h1>
+          <div class="lead">{{ speaker.biography | apply_markup:"markdown" }}</div>
+          <a style="margin-top: 20px;" href="{{ speaker_website }}" class="btn" target="_blank" rel="noopener noreferrer">Speaker home page</a>
+       </div>
+     </div>
+   </div>
+</section>
+
+{% for talk in talks %}
+    <section class="inline-video" id="talk-{{ talk.id }}">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-sm-12">
+                                <h2><strong>{{ talk.title }}</strong></h2>
+                                {{ talk.category | capfirst }}, {{ talk.get_audience_level_display | capfirst }}
+                            </div>
+                            {% slot_desc talk as talk_slot %}
+                            {% if talk.location_override %}
+                              <a class="btn btn-nohover">{{ talk.location_override }}</a>
+                            {% elif talk_slot %}
+                              <a href="{% url 'pybay_schedule' %}" class="btn">{{ talk_slot }}</a>
+                            {% endif %}
+                    </div>
+
+                    <div class="row">
+                            <div class="col-md-11">
+                                <p class="lead"></p>
+                                <div class="lead">
+                                    <h3>Description</h3>
+                                    {{ talk.description|apply_markup:"markdown" }}
+                                </div>
+                                <div class="lead">
+                                    <h3>Abstract</h3>
+                                    {{ talk.abstract|apply_markup:"markdown" }}
+                                </div>
+                                {% if talk.ticket_price %}
+                                <div class="lead">
+                                    <a class="btn{% if talk.sold_out %} btn-soldout{% endif %}" href="{% url 'pybay_tickets' %}#tickets">
+                                      {% if talk.sold_out %}Sold out
+                                      {% else %}Register (${{ talk.ticket_price }})
+                                      {% endif %}
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                    </div>
+            </div>
+    </section>
+{% endfor %}
+
+{% endblock content %}
