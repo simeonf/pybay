@@ -1,11 +1,14 @@
 import random
 import string
 
+from pathlib import Path
+
 from django import forms
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
 
 from symposion.speakers.models import Speaker
 from symposion.proposals.models import ProposalKind
@@ -15,13 +18,14 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout
 from crispy_forms.bootstrap import PrependedText
 
+
 class CallForProposalForm(forms.Form):
     first_name = forms.CharField(label='First Name', max_length=100)
     last_name = forms.CharField(label='Last Name', max_length=100)
     email = forms.EmailField(label='Email')
     website = forms.URLField(label='Website', required=False)
     phone = forms.CharField(label='Phone', max_length=20)
-    category = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=TalkProposal.CATEGORY_CHOICES)
+    themes = forms.MultipleChoiceField(label=mark_safe('Themes<br /><i>Select all that apply</i>'), widget=forms.CheckboxSelectMultiple, choices=TalkProposal.THEME_CHOICES)
     audience_level = forms.ChoiceField(choices=TalkProposal.AUDIENCE_LEVELS)
     talk_length = forms.ChoiceField(choices=TalkProposal.TALK_LENGTHS)
     speaker_bio = forms.CharField(widget=forms.Textarea)
@@ -43,7 +47,7 @@ class CallForProposalForm(forms.Form):
         PrependedText('email', '<i class="glyphicon glyphicon-envelope"></i>',placeholder='   Email'),
         PrependedText('website', '<i class="glyphicon glyphicon-globe"></i>',placeholder='  Home Page'),
         PrependedText('phone', '<i class="glyphicon glyphicon-earphone"></i>',placeholder='415-555-1234'),
-        'category',
+        'themes',
         'audience_level',
         'talk_length',
         PrependedText('speaker_bio', '<i class="glyphicon glyphicon-pencil"></i>',placeholder='Speaker Bio'),
@@ -103,6 +107,7 @@ class CallForProposalForm(forms.Form):
             )
 
         # Create a new talk
+        themes_csv = ','.join(data['themes'])
         proposal = TalkProposal.objects.create(
             kind=ProposalKind.objects.get(name='talk'),
             title=data['talk_title'],
@@ -110,18 +115,19 @@ class CallForProposalForm(forms.Form):
             abstract=data['abstract'],
             audience_level=data['audience_level'],
             speaker=speaker,
-            category=data['category'],
+            themes=themes_csv,
             talk_length=data['talk_length'],
             what_attendees_will_learn=data['what_attendees_will_learn'],
             meetup_talk=data['meetup_talk'],
             speaker_and_talk_history=data['speaker_and_talk_history'],
             talk_links=data['links_to_past_talks'],
             speaker_website=data['website'],
+            phone=data['phone'],
         )
 
         # Email submit
-        with open('%s/proposals/email_confirmation.tmpl' %
-                  settings.PACKAGE_ROOT) as f:
+        current_directory = Path(__file__).resolve().parent
+        with open(str(current_directory / "proposals/email_confirmation.tmpl")) as f:
             message = f.read().format(**data, **settings.PROJECT_DATA)
         email = EmailMessage(
             'Your PyBay talk proposal was successfully submitted!',
