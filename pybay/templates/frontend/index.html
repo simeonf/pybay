@@ -1,0 +1,311 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% load featured_speakers %}
+{% load generic_flatblocks %}
+
+
+{% block headeroption %}
+		<div class="main-container"><a id="home" class="in-page-link"></a>
+			<section class="hero-slider">
+				<ul class="slides">
+					<li class="video-header">
+						<div class="background-image-holder parallax-background">
+							<img class="background-image" alt="Background Image" src="{% static 'new/img/PB_PNG.png' %}">
+						</div>
+						<div class="video-wrapper">
+							<video autoplay muted loop>
+								<source src="{% static 'new/video/video.webm' %}" type="video/webm">
+								<source src="{% static 'new/video/video.mp4' %}" type="video/mp4">
+								<source src="{% static 'new/video/video.ogv' %}" type="video/ogg">
+							</video>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
+									<img alt="logo" class="logo" src="{% static 'new/img/PB_PNG.png' %}">
+									{% gblock "index_date_line" for "gblocks.Text" %}
+
+                                    {% if countdown %}
+                                    <span class="video-moreinfo">{{ countdown.title }}</span>
+                                    <div class="video-moreinfo countdown" id="countdown" data-countdown-date="{{ countdown.date }}" data-countdown-reference="{{ countdown.reference }}"></div>
+                                    <span class="video-moreinfo"><a class="btn" href="{{ countdown.link }}">{{ countdown.cta }}</a></span>
+                                    {% endif %}
+								</div>
+							</div><!--end of row-->
+						</div><!--end of container-->
+					</li>
+				</ul>
+			</section>
+		</div>
+{% endblock headeroption %}
+
+{% block content %}
+
+<!--Event Focus Starts -->
+    <section class="topics duplicatable-content home-page">
+      <div class="container">
+        {% gblock "index_why_attend" for "blockstuff.Col3" %}
+      </div>
+    </section>
+
+    <!--Count Down Ends  -->
+    <!-- Featured speakers Begins -->
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            {% featured_speakers %}
+          </div>
+        </div>
+      </div>
+    <!--Video 2016 Starts -->
+    <!--Event Focus Ends -->
+    <!--Count Down Starts  -->
+    <section class="strip-divider primary-overlay countdown-divider">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="About Image" src="{% static 'new/img/cdbg.jpg' %}">
+        </div>
+        <div class="container">
+            <div class="row counters-wrapper">
+                <div class="col-md-3" >
+                    <div class="counter-box" align="center">
+				        <span class="count" data-from="0" data-to="136">8</span>
+                        <p class="title">PRE-CONFERENCE WORKSHOPS</p>
+                    </div>
+                </div>
+                <div class="col-md-3" >
+                    <div class="counter-box" align="center">
+				        <span class="count" data-from="0" data-to="136">40</span>
+                        <p class="title">RESPECTED SPEAKERS</p>
+                    </div>
+
+                </div>
+                <div class="col-md-3" >
+                    <div class="counter-box" align="center">
+				        <span class="count" data-from="0" data-to="136">4</span>
+                        <p class="title">WELL CRAFTED TRACKS</p>
+                    </div>
+
+                </div>
+                <div class="col-md-3" >
+                    <div class="counter-box" align="center">
+				        <span class="count" data-from="0" data-to="136">500</span>
+                        <p class="title">BAY AREA DEVELOPERS</p>
+                    </div>
+				</div>
+            </div><!--end of row-->
+         </div>><!--end of container-->
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+									
+                  <h1 class="text-center" style="color: black;">{% gblock "index_check_the_highlights" for "gblocks.Text" %}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="youtube"
+                        id="bKMUUiioi5g"
+                        data-params="">
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-md-offset-1">
+                    <div class="testimonials-slider">
+                        <ul class="slides">
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I&#39;m really grateful that I had a chance to spend time with my WestCoast &quot;PyPeople&quot; in context at <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a>. I know who you are now! <a href="https://twitter.com/hashtag/python?src=hash">#python</a></p>&mdash; Candida (@dihaynes) <a href="https://twitter.com/dihaynes/status/767590960221958144">August 22, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Great conference... Learning something new at each talk... good eats.. interesting people...  <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a></p>&mdash; Michael Alber (@malber_infotech) <a href="https://twitter.com/malber_infotech/status/767452744554647552">August 21, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a> was the most mellow conference I&#39;ve ever been to. Great crowd, great talks!</p>&mdash; Rumman Chowdhury (@ruchowdh) <a href="https://twitter.com/ruchowdh/status/767781567993221120">August 22, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Thank you <a href="https://twitter.com/py_bay">@py_bay</a>! <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a> raised $1000 for <a href="https://twitter.com/concrnapp">@concrnapp</a> to increase compassionate response to crises in SF.</p>&mdash; Hy Carrel (@connectwithsf) <a href="https://twitter.com/connectwithsf/status/855102588684910593">April 20, 2017</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Many thx to <a href="https://twitter.com/py_bay">@py_bay</a> and volunteers for a wonderful <a href="https://twitter.com/hashtag/python?src=hash">#python</a> conf in SF @ <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a>! Great talks/food/conversations! See you @ <a href="https://twitter.com/hashtag/PyBay2017?src=hash">#PyBay2017</a>!!!</p>&mdash; Karen Dalton (@kilodalton) <a href="https://twitter.com/kilodalton/status/767589952343248896">August 22, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/py_bay">@py_bay</a> for an enjoyable first Python conference experience for me!  <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a></p>&mdash; Mylene Hortaleza (@mylene_h) <a href="https://twitter.com/mylene_h/status/767595901867085829">August 22, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Had a great time at <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a> today. Looking forward to tomorrow!</p>&mdash; Lavinia Karl (@laviniaclare) <a href="https://twitter.com/laviniaclare/status/767170838793551872">August 21, 2016</a></blockquote>
+                            </li>
+                            <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a>  has the best conf lunch I have had in a long time.  Grateful for no wimpy mayonnaise laden sandwiches.</p>&mdash; Angeline Tan (@agilemeister) <a href="https://twitter.com/agilemeister/status/767085084637667328">August 20, 2016</a></blockquote>
+                           </li>
+                           <li class="testimonials-slide">
+                                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Loved the Lightning Talks <a href="https://twitter.com/py_bay">@py_bay</a> <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a> - always fun and inspiring to see the passion of the Python community!</p>&mdash; David Wilson (@D_J_Wilson) <a href="https://twitter.com/D_J_Wilson/status/767527158692536320">August 22, 2016</a></blockquote>
+                           </li>
+                               <li class="testimonials-slide">
+                                    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A programmer should set on a journey to discover zen and harmony of a language.. <a href="https://twitter.com/hashtag/PyBay2016?src=hash">#PyBay2016</a></p>&mdash; Vipul Kanade (@vipstech) <a href="https://twitter.com/vipstech/status/767050547518066688">August 20, 2016</a></blockquote>
+                               </li>
+                        </ul>
+                    </div><!--testimonial slider-->
+				    <a href="https://twitter.com/py_bay" target="_blank" class="btn" rel="noopener noreferrer"><i class="icon social_twitter">&nbsp;</i> Follow PyBay</a>
+				</div><!--end of col-->
+            </div><!--end of row-->
+        </div><!--end of container-->
+
+    </section>
+    <!--Video  2016 Ends -->
+    <!--Interested in Speaking at Meetup Start -->
+    <section class="strip-divider primary-overlay">
+        <div class="background-image-holder parallax-background">
+            <img class="background-image" alt="About Image" src="{% static 'new/img/11.jpg' %} ">
+        </div>
+        <div class="video-wrapper">
+            <video autoplay muted loop>
+				<source src="{% static 'new/video/video.webm' %}" type="new/video/webm">
+				<source src="{% static 'new/video/video.mp4' %}" type="new/video/mp4">
+				<source src="{% static 'new/video/video.ogv' %}" type="new/video/ogg">
+            </video>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+				    <h1 style="color:white">{% gblock "interested_in_sponsoring_pybay" for "gblocks.Text" %}<a href="sponsors-prospectus"><u>Get in touch</u></a></h1>
+				</div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </section>
+    <!--Interested in Speaking at Meetup End -->
+    {% include "frontend/faq_box.html" %}
+    <!--Previous Meetup Starts -->
+    <section class="lightbox-gallery preserve-3d">
+        <div class="gallery-holder">
+            <ul>
+                <li>
+				    <a href="{% static 'new/img/lb1.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb1.jpg' %}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb2.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+                            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb2.jpg' %}">
+                        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb3.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb3.jpg'     %}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb4.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb4.jpg' %}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb5.jpg'%}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static       'new/img/lb5.jpg'%}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb6.jpg'%}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb6.jpg'%}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+                    <a href="{% static 'new/img/ch7.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/ch7.jpg' %}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/ch8.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/ch8.jpg' %}">
+				        </div>
+				    </a>
+				</li>
+				<li>
+				    <a href="{% static 'new/img/lb1.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb1.jpg' %}" >
+				        </div>
+				    </a>
+				</li>
+				<li>
+                    <a href="{% static 'new/img/lb2.jpg' %}" class="lightbox-link-mrv" data-lightbox="true" data-title="PyBay 2016">
+				        <div class="background-image-holder">
+				            <img class="background-image" alt="Lightbox Image" src="{% static 'new/img/lb2.jpg' %}">
+				        </div>
+				    </a>
+				</li>
+            </ul>
+        </div>
+		<div class="container">
+            <div class="row">
+				<div class="col-sm-12">
+				    <div>
+				        <i class="icon pe-7s-camera text-white"></i>
+				        <h1 class="text-white">{% gblock "memories_from_pybay" for "gblocks.Text" %}</h1>
+				    </div>
+				</div>
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </section>
+    <!--Previous Meetup Ends -->
+    <!--Subscribe to stay tune Starts -->
+    <section class="subscribe-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <i class="icon pe-7s-pen"></i>
+                    <i class="icon pe-7s-mail-open-file"></i>
+                    <i class="icon pe-7s-paper-plane"></i>
+                    <h1 class="large-h1" style="color: black;">Subscribe to stay informed</h1>
+                </div>
+            </div><!--end of row-->
+		<div class="row">
+		    <div class="col-sm-12 text-center">
+			<div class="clear"><a href="https://ti.to/sf-python/pybay2018" class="btn" target="_blank">Subscribe Here</a></div>
+		    </div>
+		</div><!--end of row-->
+        </div>
+                <!--End mc_embed_signup-->
+<!--                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <form class="email-subscribe mail-list-signup">
+                        <div class="col-sm-7">
+                            <input class="form-email signup-email-field" type="text"    placeholder="Enter your email address">
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="btn" type="submit" value="Subscribe">
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <span>*We never share your email with 3rd parties</span>
+                        </div>
+                        <iframe class="mail-list-form" srcdoc=""></iframe>
+                    </form>
+                </div> -->
+            </div><!--end of row-->
+        </div><!--end of container-->
+    </section>
+    <!--Subsribe to stay Tune Ends -->
+{% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+{% if countdown %}
+<script type="text/javascript" src="{% static 'new/js/countdown.js' %}"></script>
+<script type="text/javascript">
+countdown(document.getElementById('countdown'));
+</script>
+{% endif %}
+{% endblock %}
