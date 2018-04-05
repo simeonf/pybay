@@ -8,7 +8,7 @@ class CategoryAdmin(OrderedModelAdmin):
     list_display = ('title', 'move_up_down_links')
 
 class FaqAdmin(OrderedModelAdmin):
-    list_display = ('category', 'title', 'move_up_down_links')
+    list_display = ('category', 'title', 'show_on_registration', 'show_on_sponsors', 'show_on_home', 'move_up_down_links')
     list_filter = ('category',)
 
 
