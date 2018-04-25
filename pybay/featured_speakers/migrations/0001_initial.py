@@ -10,9 +10,7 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('symposion_speakers', '0003_auto_20170419_0518'),
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
