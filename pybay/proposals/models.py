@@ -3,6 +3,15 @@ from django.db import models
 from symposion.proposals.models import ProposalBase
 
 
+THEMES = {
+    'python': 'Python & Libraries',
+    'ai': 'AI & Data',
+    'automation': 'DevOps & Automation',
+    'speed': 'Scale & Performance',
+    'community': 'Fun & People',
+}
+
+
 class Proposal(ProposalBase):
 
     AUDIENCE_LEVEL_NOVICE = 1
@@ -25,17 +34,7 @@ class Proposal(ProposalBase):
          (MEETUP_CHOICE_NO, "No")
     ]
 
-    THEME_CHOICES = [
-        "Python Fundamentals & Popular Libraries",
-        "Machine Learning, AI, & All things Data",
-        "DevOps, Automation, & Testing",
-        "Dealing with Speed, Scale, & Performance",
-        "Engineering a Community",
-        "Hacking Hardware"
-    ]
-    THEME_CHOICES = [
-        (c.lower().replace('/', ''), c) for c in THEME_CHOICES
-    ]
+    THEME_CHOICES = list(THEMES.items())
 
     TALK_SHORT = 25
     TALK_LONG = 40
@@ -62,6 +61,15 @@ class Proposal(ProposalBase):
 
     class Meta:
         abstract = True
+
+    @property
+    def theme_slugs(self):
+        return self.themes.split(',')
+
+    @property
+    def theme_descriptions(self):
+        for theme in self.theme_slugs:
+            yield THEMES[theme]
 
 
 class TalkProposal(Proposal):
