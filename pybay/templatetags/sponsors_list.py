@@ -8,8 +8,11 @@ register = template.Library()
 @register.inclusion_tag('frontend/sponsors_footer.html', takes_context=True)
 def sponsors_footer(context):
     sponsors = Sponsor.objects.filter(active=True)
+    # Hack: We have sponsors that sponsor at multiple levels
+    # de-duplicate by name
+    by_name = {sponsor.name: sponsor for sponsor in sponsors}
     return {
-        'sponsors': sponsors,
+        'sponsors': by_name.values(),
     }
 
 
