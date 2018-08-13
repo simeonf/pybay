@@ -11,8 +11,9 @@ def sponsors_footer(context):
     # Hack: We have sponsors that sponsor at multiple levels
     # de-duplicate by name
     by_name = {sponsor.name: sponsor for sponsor in sponsors}
+    sponsors = sorted(by_name.values(), key=lambda sponsor: sponsor.name)
     return {
-        'sponsors': by_name.values(),
+        'sponsors': sponsors,
     }
 
 
