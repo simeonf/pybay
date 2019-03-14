@@ -1,0 +1,38 @@
+{% extends "frontend/base.html" %}
+
+{% block content %}
+<section class="jobs">
+  <div class="container">
+    <div class="row">
+      <div class="page-header no-border">
+        <ol class="breadcrumb">
+          <li>Job Postings</li>
+        </ol>
+      </div>
+    </div>
+
+    {% for job in jobs %}
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="blue-title"><a href="{{ job.get_absolute_url }}">{{ job.title|safe }}</a></h2>
+        <h3>{{ job.company }} ~ {{ job.location }}</h3>
+        <h4>{{ job.details|safe }}</h4>
+        <div class="padding-sm">
+          <p>{{ job.lengthy_details|safe }}</p>
+        </div>
+        <div>
+          <a class="btn btn-success" href="{{ job.get_absolute_url }}" role="button">Learn More</a>
+          {% if job.link %}<a class="btn btn-primary" href="{{ job.link }}" role="button">Apply</a>{% endif %}
+        </div>
+      </div>
+      <div class="col-md-4">
+        {% ifchanged job.logo %}
+        {% if job.logo %}<img class="img-responsive" align="right" src="{{job.logo.url }}" alt="{{job.title}}" width="200">{% endif %}
+        {% endifchanged %}
+      </div>
+    </div>
+    <div class="row"><hr></div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
