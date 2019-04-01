@@ -1,0 +1,42 @@
+{% extends "frontend/base.html" %}
+{% load markup_tags %}
+
+{% block content %}
+<section class="jobs">
+  <div class="container">
+
+    <div class="row">
+      <div class="page-header no-border">
+        <ol class="breadcrumb">
+          <li><a href="..">Job Postings</a></li>
+          <li>{{ job.title|safe }}</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="well">
+          <p>
+            {{ job.details }}
+          </p>
+          <br>
+          <p>
+          {% if job.link %}<p><a class="btn btn-sm btn-primary" href="{{ job.link }}" role="button">Apply</a>{% endif %}
+          <a class="btn btn-sm btn-secondary" href=".." role="button">Back to Job Listings</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        {% if job.logo %}<img class="featurette-image img-responsive center-block" src="{{job.logo.url }}" alt="{{job.title}}" width="300">{% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          {{ job.lengthy_details|apply_markup:"markdown" }}
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </div>
+</section>
+{% endblock %}

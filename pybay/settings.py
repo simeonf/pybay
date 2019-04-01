@@ -178,6 +178,7 @@ INSTALLED_APPS = [
     'menu',
     'sponsorbenefits',
     'crispy_forms',
+    'jobs',
 ]
 
 # A sample logging configuration. The only tangible logging
