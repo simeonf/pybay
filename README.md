@@ -47,6 +47,7 @@ For some reason, running `manage.py loaddata fixtures/*` gives a `No fixture nam
 ## Deploying
 
 Deploying to pybay requires: 
+
     1. fabric
     2. your public key on the pybay server (contact admin)
         2.1 you can create a keypair with: $ ssh-keygen -t rsa
