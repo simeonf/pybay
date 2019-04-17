@@ -7,55 +7,17 @@
 
 {% block content %}
 <!-- Why Sponsor Starts -->
+<section>
+  <div class="container">
+{% gblock "showcase_benefits" for "gblocks.Text" %}
+  </div>
 
-
-<a id="register" class="in-page-link"></a>
-
-            <section class="image-with-text background-dark preserve-3d">
-
-                <div class="container vertical-align">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-8">
-                            <h1 class="text-white">{% gblock "want_to_showcase" for "gblocks.Text" %}</h1>
-                            {% gblock "showcase_benefits" for "gblocks.Text" as "showcase_benefits" %}
-                            {% if showcase_benefits|count_content_lines > 0 %}
-                                {{ showcase_benefits }}
-                            {% else %}
-                              {{ showcase_benefits }}
-                              <div style="color: white; margin-bottom: 20px">
-                                <ul class="sponsorbenefits bulleted">
-                                  <li>500+ attendees.</li>
-                                  <li>15,000+ eyeballs through pre-conference promotions.</li>
-                                  <li>50% mid-level developers. 39% senior-level. 25% women.</li>
-                                  <li>Speakers and sponsors include Microsoft, Google, Yelp, and Bloomberg.</li>
-                                </ul>
-                              </div>
-                            <a href="mailto:grace@pybay.com?cc=avy@faingezicht.com&subject=Hi, I want to sponsor PyBay&body=Please include your company name and your budget, wish list, and questions." value="Register Now" class="btn">Email Us</a>
-                            {% endif %}
-
-                        </div>
-                    </div><!--end of row-->
-
-                </div><!--end of container-->
-
-                <div class="go-right side-image col-sm-4 col-md-6">
-                    <div class="background-image-holder">
-                        <img class="background-image" alt="About Image" src= "{% static 'new/img/lb3.jpg' %}">
-                    </div>
-                </div>
-       </section>
-
-
-{% include "frontend/sponsors_charts.html" %}
 {% include "frontend/sponsors_benefits.html" %}
 
-<section class="topics">
   <div class="container">
     {% gblock "sponsors_1" for "gblocks.Text" %}
   </div>
 </section>
-
-{% include "frontend/faq_box.html" %}
 
 {% endblock content %}
 
