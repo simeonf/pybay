@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@5.9.2/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3pie@0.2.1/d3pie/d3pie.min.js"></script>
+</head>
+
+<style>
+  /* SPONSOR PAGE PRICING TABLE */
+
+  /* Headings */
+  .pricely-chart .panel-heading {
+    font-size: 22px;
+    margin: 0;
+    padding: 30px 20px;
+    text-align: center;
+    background: #f5f5f5;
+    height: 130px;
+  }
+
+  .pricely-chart-one h3 span {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    padding: 5px 0 0;
+    text-transform: uppercase;
+  }
+
+  .pricely-label {
+    display: block;
+    font-size: 18px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0 auto 10px;
+    text-transform: uppercase;
+  }
+
+  /* Features */
+  .pricely-first-heading .pricely-label {
+    font-weight: 600;
+
+
+  }
+
+  .pricely-figure {
+    padding: 5px 0 5px;
+    position: relative;
+  }
+
+  .pricely-currency {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    position: absolute;
+    top: 7px;
+  }
+
+  .pricely-amount {
+    display: inline-block;
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    line-height: 5px;
+    padding: 0 0 0 17px;
+  }
+
+  /*Select your plan section*/
+  .pricely-foreword {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    padding: 0;
+  }
+
+  .pricely-paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px;
+    text-align: left;
+  }
+
+  /* Icons */
+  .pricely-pro .glyphicon {
+    display: block;
+    text-align: center;
+  }
+
+  .pricely-pro .glyphicon {
+    color: #428bca;
+  }
+
+
+  /*===== Price Chart Specific =====*/
+
+  .pricely-pro .panel-heading {
+    border-radius: 0;
+    min-height: 130px;
+  }
+
+  .pricely-pro li li.list-group-item {
+    border-left-width: 1px;
+    border-radius: 0;
+    min-height: 46px;
+  }
+
+  .pricely-pro li li.list-group-item:nth-child(even) {
+
+    background: #f5f5f5;
+  }
+
+  /*Additional row colums */
+  .pricely-pro li li.list-group-item:nth-last-child(1) {
+    background: #fef8eb;
+  }
+
+  .pricely-pro li.pricely-first-heading li.list-group-item {
+    border-left-width: 2px;
+    border-radius: 0;
+    min-height: 46px;
+
+  }
+
+  .pricely-pro {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pricely-pro li.pricely-first-heading, .pricely-pro li.pricely-inner {
+    padding: 0;
+  }
+
+  .pricely-pro .panel-heading {
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    background: #FBBD4A;
+  }
+
+  .pricely-pro li:first-child .panel-heading {
+    border-left: 1px solid #ddd;
+    background: #428bca;
+
+  }
+
+  .pricely-professional li.list-group-item .feature-hide {
+    display: none;
+  }
+
+  .pricely-professional li .glyphicon {
+    display: inline-block;
+  }
+
+  .pricely-professional li .pricely-paragraph .glyphicon {
+    display: block;
+  }
+
+  .pricely-professional li.list-group-item {
+    text-align: center;
+  }
+
+  /*@media screen (max-width:1199px) and (min-width: 992px) {*/
+  /*input#id_meetup_talk_1 {*/
+  /*background: red!important;*/
+  /*}*/
+  /*}*/
+
+  @media screen and (min-width: 0) {
+    /* Specific to IE */
+    .pricely-currency {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 400;
+      position: relative;
+      top: -30px;
+    }
+
+    .pricely-amount {
+      font-size: 18px;
+      line-height: 65px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+
+    .pricely-pro li li.list-group-item {
+      border-left-width: 1px;
+      text-align: center;
+    }
+
+    .pricely-chart .panel-heading {
+      padding: 15px 10px;
+      background: #428bca;
+    }
+
+    .pricely-pro .panel-heading {
+      border-left: 1px solid #ddd;
+      min-height: inherit;
+    }
+
+    .pricely-professional li.list-group-item .feature-hide {
+      display: inline;
+      padding: 0 0 0 10px;
+    }
+
+    .pricely-pro li.pricely-first-heading {
+      display: none;
+    }
+
+    /*
+        .pricely-pro .glyphicon {
+            display: none !important;
+        }
+    */
+    .pricely-foreword, .pricely-label {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .pricely-foreword:before {
+      content: " ";
+    }
+
+  }
+
+  .sponsortable > thead > tr > th {
+    text-align: center;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    color: #ffffff;
+  }
+
+  table td {
+    text-align: center;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  .last-column {
+    border-right: none;
+  }
+
+  table th {
+    background: #428bca;
+  }
+
+  .first-column {
+    background: #FBBD4A;
+    color: black;
+  }
+
+  .sponsortable > thead > tr > th.axial-column,
+  .sponsortable > tbody > tr > td.axial-column {
+    text-align: left;
+  }
+
+  ul.sponsorbenefits > li {
+    list-style-type: disc;
+  }
+
+  .sponsortable > tbody > tr.last-row > td {
+    background: #fef8eb;
+  }
+
+  .tickets {
+    margin-top: 40px;
+  }
+
+  /*BEGIN Keep this css inline or add to styles.css*/
+  td.diversity-column {
+    background: #fef8eb;
+  }
+
+  .second-column {
+    background: #428bca
+  }
+
+  table td.axial-description {
+    text-align: left;
+    background: #eee;
+  }
+
+  .pre-conf {
+    background: #aaa;
+    color: #fff;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .at-conf {
+    background: #8bbeea;
+    color: #fff;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .post-conf {
+    background: #ecba5f;
+    color: #fff;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .generic-conf {
+    background: #ccc;
+    color: #fff;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .tablecelllefty {
+    text-align: left;
+  }
+
+  /*END Keep this css inline or add to styles.css*/
+</style>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="heavy-header blue-header">
+          <h2>Why Sponsor?</h2>
+        </div>
+        <p class="lead">
+        <li>750+ Python devs: 650+ from SF Bay Area and 100+ from around the world, the largest Python Devs gathering in
+          the Bay Area in 2019
+        </li>
+        <li>18,000+ eyeballs through pre-conference promotions at SF Python and related Python meetups’ mailing lists
+        </li>
+        <li>Brand your company among the most innovative, forward-thinking and diversity-conscious in the Python
+          community
+        </li>
+        <li>Promote your technical challenges, and network for your next great hire</li>
+        <li>Drive adoption of your product or technical offerings</li>
+        <li>Support SF Python's mission to enhance the Python community and ecosystem in SF Bay Area</li>
+        </ul>
+        </p>
+        <br>
+        <a href="https://drive.google.com/open?id=1RJ-JIyzEtgAvaSddRcXl66zK_vSUIIiU" class="btn">Download Prospectus</a>
+        <a href="mailto:grace@pybay.com?subject=Hi, I want to sponsor PyBay&body=Please include your company name and your budget, wish list, and questions."
+           class="btn">Email us</a> <a href="https://squareup.com/store/sf-python" class="btn">Pay w/ Credit Card</a>
+      </div>
+
+      <div class="col-md-6">
+        <img src="/site_media/media/fpimg/IMG_1112_2.JPG" alt="Sponsor-Blameless"/>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="heavy-header blue-header">
+      <h2>Attendees Demographics</h2>
+    </div>
+    <p>*Data from 639 attendees at PyBay 2018</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div id="pieChart"></div>
+        </div>
+        <div class="col-md-4">
+          <div id="pieChart2"></div>
+        </div>
+        <div class="col-md-4">
+          <div id="pieChart3"></div>
+        </div>
+      </div>
+      <br>
+
+      <div class="heavy-header blue-header">
+        <h2>What topics are you interested in?</h2>
+        <div id="bar1" style="width:700px;"></div>
+      </div>
+      <br>
+
+      <div class="heavy-header blue-header">
+        <h2>What is your background?</h2>
+        <div id="bar2" style="width:700px;"></div>
+      </div>
+    </div>
+    <br>
+
+    <div class="heavy-header blue-header">
+      <h2>Sponsorship Opportunities</h2>
+      <br>
+      <div class="table-responsive">
+
+        <table class="table sponsortable">
+          <thead>
+          <tr>
+            <th colspan="6" class="axial-column"><h3 class="panel-heading"><span class="pricely-label"><b>Sponsor packages</b></span>
+            </h3></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td width="32%"></td>
+            <td colspan="3"><h4>Recruiting &amp; Exhibition Focus</h4></td>
+            <td colspan="2" class="diversity-column"><h4>Diversity &amp; Inclusion Focus</h4></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><strong>Champion </strong></td>
+            <td><strong>Partner</strong></td>
+            <td><strong>Promotor </strong></td>
+            <td class="diversity-column"><strong>Advocate</strong></td>
+            <td class="diversity-column"><strong>Friend</strong></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>$20,000</td>
+            <td>$10,000</td>
+            <td>$5,000</td>
+            <td class="diversity-column">$5,000</td>
+            <td class="diversity-column">$2,500</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="pre-conf">Pre-Conference</td>
+          </tr>
+          <tr>
+            <td class="axial-description">Job slot on pybay.com</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Guest blog D&amp;I initiatives on PyBay’s Medium</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td class="diversity-column">&#10004;</td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Logo in emails to mailing list</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+          </tr>
+          <tr>
+            <td class="axial-description">100-word blurb &amp; logo on pybay.com</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+          </tr>
+          <tr>
+            <td class="axial-description">Mentions in social media</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+            <td class="diversity-column">&#10004;</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="at-conf">At Conference</td>
+          </tr>
+          <tr>
+            <td class="axial-description">PyBay tickets</td>
+            <td>8</td>
+            <td>4</td>
+            <td>2</td>
+            <td class="diversity-column">20% disc</td>
+            <td class="diversity-column">20% disc</td>
+          </tr>
+          <tr>
+            <td class="axial-description">Exhibit days</td>
+            <td>SAT + SUN</td>
+            <td>SAT + SUN</td>
+            <td>SAT</td>
+            <td class="diversity-column">SUN</td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Booth size</td>
+            <td>>Call to discuss</td>
+            <td>6 ft table</td>
+            <td>6 ft table</td>
+            <td class="diversity-column">6 ft table</td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Logo on PyBay T-shirt</td>
+            <td>Large</td>
+            <td>Medium</td>
+            <td>Small</td>
+            <td class="diversity-column">Small</td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Bag insert OR raffle item</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Logo on menu &amp; napkins</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Pop-up banner in keynote room</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">Host programs in your booth*</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td class="axial-description">5 mins pre-keynote talk time</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td colspan="6" class="post-conf">Post Conference</td>
+          </tr>
+          <tr>
+            <td class="axial-description">Your name on 80+ videos</td>
+            <td>&#10004;</td>
+            <td></td>
+            <td></td>
+            <td class="diversity-column"></td>
+            <td class="diversity-column"></td>
+          </tr>
+          <tr>
+            <td colspan="6" class="generic-conf">Other ways to sponsor</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="first-column"><h4>Add-ons</h4></td>
+            <td colspan="4" class="second-column"><h4>A la Carte</h4></td>
+          </tr>
+          <tr>
+            <td class="tablecelllefty">Logo on lanyard (1)</td>
+            <td class="tablecelllefty">$2,000</td>
+            <td class="tablecelllefty">Speakers' registration (2)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$10,000</td>
+          </tr>
+          <tr>
+            <td class="tablecelllefty">Keynote room naming (1)</td>
+            <td class="tablecelllefty">$2,500</td>
+            <td class="tablecelllefty">Speakers' lodging &amp; flight (4+)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$2,000</td>
+          </tr>
+          <tr>
+            <td class="tablecelllefty">Main talk room naming (2)</td>
+            <td class="tablecelllefty">$2,000</td>
+            <td class="tablecelllefty">Meet-ups room naming (2)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$1,000</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">Hacker's lounge room naming (1)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$2,000</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">Chair drop (1)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$2,500</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">Conference mobile app (1)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$3,500</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">Coffee &amp; tea (1)</td>
+            <td></td>
+            <td></td>
+            <td class="tablecelllefty">$3,500</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="generic-conf">Sponsor benefits explained</td>
+          </tr>
+          <tr>
+            <td class="axial-description">Diversity and Inclusion Sponsors</td>
+            <td colspan="5" class="tablecelllefty">Fund speakers' tickets and provide financial aid for
+              under-represented developers, students, and working professionals
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Speakers' Lodging &amp; Flight (4+)</td>
+            <td colspan="5" class="tablecelllefty">Help our speakers recover their travel cost! We will divide up the
+              total collected and incl your company's name to the correspondence when we reimburse the speakers - before
+              the conference! Be ready to shake hands and selfie with them at PyBay!
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Conference App (1)</td>
+            <td colspan="5" class="tablecelllefty">Yeap, we are big enough where an in-conference mobile app will
+              improve everyone's experience. Help us pay for Guidebook and brand your company on the app!
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Chair Drop (1)</td>
+            <td colspan="5" class="tablecelllefty">Be the conversation topic as devs wait for the keynote to start! Is
+              it a swag on the seat or a secret prize someone(s) will win? Our volunteers will put your swag or message
+              of your choice on every seat before the first keynote.
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Coffee &amp; Tea (1)</td>
+            <td colspan="5" class="tablecelllefty">Be the life line for devs at a dev conference! Your company's logo
+              will be on all coffee cups!
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Host programs in your booth</td>
+            <td colspan="5" class="tablecelllefty">Want to run your own mmetups on both conference days within your
+              extra large booth? Be our highest level sponsor. If you don't have enough staff to give talks, do mock
+              interviews or demo your products, we'll station massage therapists in your booth to make sure you get the
+              most traffic and love from devs.
+            </td>
+          </tr>
+          <tr>
+            <td class="axial-description">Your name on 80+ videos**</td>
+            <td colspan="5" class="tablecelllefty">We’ll thank your company for sponsoring the video recording of all
+              talks numerous times during the conference. All YouTube videos will include a 1-second intro saying "Talk
+              videos through the generosity of (your company)"
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  //**************************************
+  // Bar Charts
+  //**************************************
+  class barChart {
+      constructor(args = {}) {
+
+          this.data = args.data;
+          this.element = document.querySelector(args.element);
+          this.width = args.width || this.element.offsetWidth;
+          this.height = args.height || this.width / 2;
+          this.color = args.color || ['#3a89d3'];
+          this.xval = args.xval;
+          this.yval = args.yval;
+          this.drawLabel = args.drawLabel || "on";
+          this.tooltip = args.tooltip || "off";
+
+
+          this.mapData();
+          this.draw();
+      }
+
+      sortByKey(array, key) {
+          return array.sort(function (a, b) {
+              const x = a[key];
+              const y = b[key];
+              return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+          });
+      }
+
+      mapData() {
+          this.data.forEach(d => {
+              d.value = d[this.xval],
+                  d.name = d[this.yval],
+                  delete d[this.xval],
+                  delete d[this.yval]
+          });
+
+          this.data = this.sortByKey(this.data, "label");
+
+      }
+
+      draw() {
+          this.margin = {top: 25, right: 40, bottom: 25, left: 135};
+          this.element.innerHTML = '';
+          const svg = d3.select(this.element).append("svg")
+              .attr("width", this.width + this.margin.left + this.margin.right)
+              .attr("height", this.height + this.margin.top + this.margin.bottom);
+
+
+          this.plot = svg.append('g')
+              .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+          this.createScales();
+          this.addBar();
+          this.addAxis();
+
+      }
+
+      createScales() {
+
+          this.x = d3.scaleLinear()
+              .range([0, this.width])
+              .domain([0, d3.max(this.data, d => d.value)]);
+
+          this.y = d3.scaleBand()
+              .range([this.height, 0])
+              .domain(this.data.map(d => d.name))
+              .padding(0.1);
+
+          this.colorScale = d3.scaleQuantize()
+              .range(this.color)
+              .domain([0, this.data.length]);
+      }
+
+      addAxis() {
+
+
+          const xAxis = d3.axisBottom(this.x),
+              yAxis = d3.axisLeft(this.y).tickSize(0);
+
+          this.plot.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + this.height + ")")
+              .call(xAxis)
+
+          this.plot.append("g")
+              .attr("class", "y axis")
+              .call(yAxis)
+
+      }
+
+
+      addBar() {
+          this.bars = this.plot.selectAll(null)
+              .data(this.data)
+              .enter()
+              .append("g");
+
+          this.bars.append("rect")
+              .attr("class", "bar")
+              .attr("y", d => this.y(d.name))
+              .attr("height", this.y.bandwidth())
+              .attr("x", 0)
+              .attr('fill', (d, i) => this.colorScale(i))
+              .attr("width", d => 0)
+              .transition()
+              .duration(1000)
+              .attr("width", d => this.x(d.value));
+
+
+          if (this.tooltip == "on") {
+              this.tooltipDisplay();
+          } else {
+          }
+
+          if (this.drawLabel == "off") {
+          } else {
+              this.valueLabel();
+          }
+
+
+      }
+
+
+      valueLabel() {
+          this.bars.append("text")
+              .attr("class", "label")
+              .transition()
+              .duration(1000)
+              //y position of the label is halfway down the bar
+              .attr("y", d => this.y(d.name) + this.y.bandwidth() / 2 + 4)
+              //x position is 3 pixels to the right of the bar
+              .attr("x", d => this.x(d.value) + 3)
+              .style("font-size", 12)
+              .text(d => d.value);
+      }
+
+
+      tooltipDisplay() {
+
+          var tip = d3.select(this.element).append("div")
+              .attr("class", "tooltip")
+              .style("opacity", 0);
+          console.log(tip);
+
+
+          this.bars.selectAll("rect")
+              .on("mouseover", function (d) {
+                  // console.log(d.name)
+                  tip.transition()
+                      .duration(200)
+                      .style("opacity", 0.9);
+                  tip.html("<center>" + d.name + "<br>" + d.value + "</center>")
+                      .style("left", (d3.mouse(this)[0]) + "px")
+                      .style("top", (d3.mouse(this)[1]) + "px");
+              })
+              .on("mouseout", function () {
+                  tip.transition()
+                      .duration(500)
+                      .style("opacity", 0)
+              });
+
+      }
+  }
+
+  //**************************************
+  // Pie Charts
+  //**************************************
+
+  class pieChart {
+
+        constructor(args = {}) {
+            this.margin = {right: 20, left: 160, top: 50}
+            this.data = args.data;
+            this.label = args.label || "label";
+            this.value = args.value || "value";
+            this.element = document.querySelector(args.element);
+            this.width = args.width || this.element.offsetWidth;
+            this.height = args.height || .75 * this.width;
+            this.color = args.color || d3.scaleOrdinal(d3.schemeCategory10);
+            this.radius = (Math.min(this.width, this.height) - this.margin.left) / 2;
+            this.tooltip = args.tooltip || "on";
+
+            this.mapData();
+            this.draw();
+        }
+
+        mapData() {
+            this.data.forEach(d => {
+                d.label = d[this.label],
+                    d.value = d[this.value],
+                    d.enabled = true
+            });
+
+        }
+
+        draw() {
+            this.element.innerHTML = '';
+            this.svg = d3.select(this.element).append("svg")
+                .attr("width", this.width)
+                .attr("height", this.height)
+                .append('g')
+                .attr("transform", "translate(" + (this.radius + this.margin.right) + "," + (this.radius + this.margin.top) + ")");
+
+            this.drawPie();
+        }
+
+        drawPie() {
+            const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+
+            const arc = d3.arc()
+                .outerRadius(this.radius)
+                .innerRadius(0);
+
+            const path = this.svg.selectAll("g")
+                .data(pie(this.data))
+                .enter()
+                .append('path')
+                .attr("class", "slices")
+                .attr("id", (d, i) => 'pie' + this.data[i].label)
+                .attr("d", arc)
+                .attr("fill", d => this.color(d.data.label))
+                .each(d => this._current = d);
+
+
+            this.addLegend(this.data, pie, arc, path);
+
+            if (this.tooltip == "on") {
+                this.tooltipDisplay(this.data, path);
+            } else {
+            }
+
+        }
+
+        addLegend(d, pie, arc, path) {
+
+            const legendRectSize = 18,
+                legendSpacing = 4;
+
+
+            const legend = this.svg.append('g')
+                .attr('transform', 'translate(' + (this.radius + 70) + ',' + 0 + ')')
+                .selectAll('.legend')
+                .data(this.color.domain())
+                .enter()
+                .append('g')
+                .attr('class', 'legend')
+                .attr('transform', function (d, i) {
+                    const height = legendRectSize + legendSpacing,
+                        offset = height * this.color.domain().length / 2,
+                        horz = -2 * legendRectSize,
+                        vert = i * height - offset;
+                    return 'translate(' + horz + ',' + vert + ')';
+                }.bind(this));
+
+            legend.append('rect')
+                .attr('width', legendRectSize)
+                .attr('height', legendRectSize)
+                .style('fill', this.color)
+                .style('stroke', this.color);
+
+
+            legend.append('text')
+                .attr('x', legendRectSize + legendSpacing)
+                .attr('y', legendRectSize - legendSpacing)
+                .text(d => d);
+
+        }
+
+        tooltipDisplay(d, path) {
+            var tip = d3.select(this.element).append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            path.on("mouseover", function (d) {
+                tip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+
+                //append text to mouseover
+                tip.html("<b>" + d.data.label + "</b><br>" +
+                    "value: " + d.data.value + "<br>" +
+                    Percent(d) + "%"
+                )
+                    .style("left", (d3.event.layerX + 10) + "px")
+                    .style("top", (d3.event.layerY + 10) + "px");
+            })
+                .on("mouseout", function (d) {
+                    tip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
+
+
+            function Percent(d) {
+                let total = d3.sum(data.map(function (d) {
+                        return (d.enabled) ? d.value : 0;
+                    })),
+                    percent = Math.round(1000 * d.data.value / total) / 10
+                return percent
+            }
+
+        }
+    }
+
+  let pie1 = new d3pie("pieChart", {
+      "header": {
+          "title": {
+              "text": "Resides in",
+              "fontSize": 24,
+              "font": "open sans"
+          },
+          "subtitle": {
+              "color": "#999999",
+              "fontSize": 12,
+              "font": "open sans"
+          },
+          "titleSubtitlePadding": 9
+      },
+      "footer": {
+          "color": "#999999",
+          "fontSize": 10,
+          "font": "open sans",
+          "location": "bottom-left"
+      },
+      "size": {
+          "canvasHeight": 300,
+          "canvasWidth": 300,
+          "pieInnerRadius": "10%",
+          "pieOuterRadius": "90%"
+      },
+      "data": {
+          "sortOrder": "value-desc",
+          "smallSegmentGrouping": {
+              "enabled": true
+          },
+          "content": [
+              {
+                  "label": "San Francisco",
+                  "value": 199,
+                  "color": "#003366"
+              },
+              {
+                  "label": "Bay Area",
+                  "value": 338,
+                  "color": "#0066cc"
+              },
+              {
+                  "label": "Greater Bay Area",
+                  "value": 7,
+                  "color": "#336600"
+              },
+              {
+                  "label": "Other",
+                  "value": 73,
+                  "color": "#669966"
+              }
+          ]
+      },
+      "labels": {
+          "outer": {
+              "format": "none",
+              "pieDistance": 27
+          },
+          "inner": {
+              "format": "label",
+              "hideWhenLessThanPercentage": 3
+          },
+          "mainLabel": {
+              "color": "#f0e6e6",
+              "fontSize": 11
+          },
+          "percentage": {
+              "color": "#ffffff",
+              "decimalPlaces": 0
+          },
+          "value": {
+              "color": "#adadad",
+              "fontSize": 11
+          },
+          "lines": {
+              "enabled": true
+          },
+          "truncation": {
+              "enabled": true
+          }
+      },
+      "effects": {
+          "pullOutSegmentOnClick": {
+              "effect": "linear",
+              "speed": 400,
+              "size": 8
+          }
+      },
+      "misc": {
+          "gradient": {
+              "enabled": true,
+              "percentage": 100
+          }
+      }
+  });
+
+  let pie2 = new d3pie("pieChart2", {
+      "header": {
+          "title": {
+              "text": "Skills level",
+              "fontSize": 24,
+              "font": "open sans"
+          },
+          "subtitle": {
+              "color": "#999999",
+              "fontSize": 12,
+              "font": "open sans"
+          },
+          "titleSubtitlePadding": 9
+      },
+      "footer": {
+          "color": "#999999",
+          "fontSize": 10,
+          "font": "open sans",
+          "location": "bottom-left"
+      },
+      "size": {
+          "canvasHeight": 300,
+          "canvasWidth": 300,
+          "pieInnerRadius": "10%",
+          "pieOuterRadius": "90%"
+      },
+      "data": {
+          "sortOrder": "value-desc",
+          "smallSegmentGrouping": {
+              "enabled": true
+          },
+          "content": [
+              {
+                  "label": "Senior",
+                  "value": 264,
+                  "color": "#003366"
+              },
+              {
+                  "label": "Intermediate",
+                  "value": 276,
+                  "color": "#0066cc"
+              },
+              {
+                  "label": "Beginner",
+                  "value": 62,
+                  "color": "#336600"
+              },
+              {
+                  "label": "Not Technical",
+                  "value": 15,
+                  "color": "#669966"
+              }
+          ]
+      },
+      "labels": {
+          "outer": {
+              "format": "none",
+              "pieDistance": 27
+          },
+          "inner": {
+              "format": "label",
+              "hideWhenLessThanPercentage": 3
+          },
+          "mainLabel": {
+              "color": "#f0e6e6",
+              "fontSize": 11
+          },
+          "percentage": {
+              "color": "#ffffff",
+              "decimalPlaces": 0
+          },
+          "value": {
+              "color": "#adadad",
+              "fontSize": 11
+          },
+          "lines": {
+              "enabled": true
+          },
+          "truncation": {
+              "enabled": true
+          }
+      },
+      "effects": {
+          "pullOutSegmentOnClick": {
+              "effect": "linear",
+              "speed": 400,
+              "size": 8
+          }
+      },
+      "misc": {
+          "gradient": {
+              "enabled": true,
+              "percentage": 100
+          }
+      }
+  });
+
+  let pie3 = new d3pie("pieChart3", {
+      "header": {
+          "title": {
+              "text": "Gender",
+              "fontSize": 24,
+              "font": "open sans"
+          },
+          "subtitle": {
+              "color": "#999999",
+              "fontSize": 12,
+              "font": "open sans"
+          },
+          "titleSubtitlePadding": 9
+      },
+      "footer": {
+          "color": "#999999",
+          "fontSize": 10,
+          "font": "open sans",
+          "location": "bottom-left"
+      },
+      "size": {
+          "canvasHeight": 300,
+          "canvasWidth": 300,
+          "pieInnerRadius": "10%",
+          "pieOuterRadius": "90%"
+      },
+      "data": {
+          "sortOrder": "value-desc",
+          "smallSegmentGrouping": {
+              "enabled": true
+          },
+          "content": [
+              {
+                  "label": "Male",
+                  "value": 421,
+                  "color": "#003366"
+              },
+              {
+                  "label": "Female",
+                  "value": 124,
+                  "color": "#0066cc"
+              },
+
+          ]
+      },
+      "labels": {
+          "outer": {
+              "format": "none",
+              "pieDistance": 27
+          },
+          "inner": {
+              "format": "label",
+              "hideWhenLessThanPercentage": 3
+          },
+          "mainLabel": {
+              "color": "#f0e6e6",
+              "fontSize": 11
+          },
+          "percentage": {
+              "color": "#ffffff",
+              "decimalPlaces": 0
+          },
+          "value": {
+              "color": "#adadad",
+              "fontSize": 11
+          },
+          "lines": {
+              "enabled": true
+          },
+          "truncation": {
+              "enabled": true
+          }
+      },
+      "effects": {
+          "pullOutSegmentOnClick": {
+              "effect": "linear",
+              "speed": 400,
+              "size": 8
+          }
+      },
+      "misc": {
+          "gradient": {
+              "enabled": true,
+              "percentage": 100
+          }
+      }
+  });
+
+  const topics = [
+      {
+          "label": "Web",
+          "val": 348
+      },
+      {
+          "label": "Data Science",
+          "val": 462
+      },
+      {
+          "label": "Data Mining",
+          "val": 462
+      },
+      {
+          "label": "DevOps",
+          "val": 302
+      },
+      {
+          "label": "Testing",
+          "val": 285
+      },
+      {
+          "label": "Tools",
+          "val": 363
+      },
+      {
+          "label": "Hardware",
+          "val": 114
+      }
+  ];
+
+  const background = [
+      {
+          "label": "Working Professional",
+          "val": 519
+      },
+      {
+          "label": "Student",
+          "val": 57
+      },
+      {
+          "label": "Open to Job Opportunities",
+          "val": 148
+      },
+      {
+          "label": "Individual Contributor",
+          "val": 149
+      },
+      {
+          "label": "Leadership Exp.",
+          "val": 150
+      },
+      {
+          "label": "Open Source Contributor",
+          "val": 128
+      },
+      {
+          "label": "Presented at Conference",
+          "val": 139
+      },
+      {
+          "label": "Published books",
+          "val": 62
+      }
+  ];
+
+  let chart4 = new barChart({
+      element: '#bar1',
+      data: topics,
+      xval: "val",
+      yval: "label",
+      height: 200,
+      color: ["#ffa500"]
+  });
+
+  let chart5 = new barChart({
+      element: '#bar2',
+      data: background,
+      xval: "val",
+      yval: "label",
+      height: 200
+  });
+</script>
+</html>

@@ -10,10 +10,21 @@ ADMINS = [('Simeon', 'simeonf@gmail.com')]
 DEBUG = True
 EMAIL_DEBUG = DEBUG
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(PROJECT_ROOT, "dev.db"),
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(PROJECT_ROOT, "dev.db"),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pybay_prod_2018',
+        'USER': 'root',
+        'PASSWORD': 'Fu33yBu77',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
