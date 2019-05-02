@@ -3,17 +3,43 @@ from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from ordered_model.admin import OrderedModelAdmin
 
-from .models import BenefitRow, AlaCarteBenefitRow, AddOnBenefitRow
+from .models import (AddOnBenefitRow, AlaCarteBenefitRow, Benefit, BenefitApplies, ExplanationRow,
+                     SponsorCategory, SponsorPackage, SponsorLevel)
 
 
-class BenefitAdmin(OrderedModelAdmin):
-    list_display = ('text', 'move_up_down_links')
-
-
-class TitleAdmin(OrderedModelAdmin):
+@admin.register(AddOnBenefitRow)
+class AddOnBenefitAdmin(OrderedModelAdmin):
     list_display = ('title', 'move_up_down_links')
 
 
-admin.site.register(BenefitRow, BenefitAdmin)
-admin.site.register(AlaCarteBenefitRow, TitleAdmin)
-admin.site.register(AddOnBenefitRow, TitleAdmin)
+@admin.register(AlaCarteBenefitRow)
+class AlaCarteAdmin(OrderedModelAdmin):
+    list_display = ('title', 'move_up_down_links')
+
+
+@admin.register(SponsorPackage)
+class SponsorPackageAdmin(OrderedModelAdmin):
+    list_display = ('text', 'move_up_down_links')
+
+
+@admin.register(SponsorCategory)
+class SponsorCategoryAdmin(OrderedModelAdmin):
+    list_display = ('text', 'move_up_down_links')
+
+
+@admin.register(SponsorLevel)
+class SponsorLevelAdmin(OrderedModelAdmin):
+    list_display = ('category', 'text', 'move_up_down_links')
+
+@admin.register(ExplanationRow)
+class ExplanationRowAdmin(OrderedModelAdmin):
+    list_display = ('title', 'move_up_down_links')
+
+
+class BenefitAppliesInline(admin.TabularInline):
+    model = BenefitApplies
+
+@admin.register(Benefit)
+class SponsorLevelAdmin(OrderedModelAdmin):
+    list_display = ('package', 'text', 'move_up_down_links')
+    inlines = [BenefitAppliesInline]
