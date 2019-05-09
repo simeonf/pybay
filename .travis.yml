@@ -1,0 +1,15 @@
+language: python
+python:
+- 3.5
+- 3.6
+install:
+- pip install pipenv
+- pipenv sync  # Install only what is specified in Pipfile.lock
+script:
+- pipenv run  python -c 'import django;print(django.get_version())'
+- pipenv run ./manage.py migrate
+- pipenv run ./manage.py compilescss
+- pipenv run ./manage.py collectstatic --no-input
+- pipenv run ./manage.py test
+env:
+- TRAVIS=true PIPENV_IGNORE_VIRTUALENVS=1  # Pipenv running in a virtualenv causes problems because it also creates a virtualenv

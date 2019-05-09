@@ -1,0 +1,34 @@
+{% extends 'frontend/base.html' %}
+{% load staticfiles %}
+{% load bootstrap %}
+{% load pinax_boxes_tags %}
+{% load crispy_forms_tags %}
+{% load generic_flatblocks %}
+
+{% block body_class %}cfp-page{% endblock %}
+
+{% block content %}
+<!--Event Focus Starts -->
+    <a id="about" class="in-page-link"></a>
+    <section class="topics duplicatable-content">
+        <div class="container">
+            {% gblock "cfp_top_block" for "blockstuff.Col3" %}
+        </div><!--end of container-->
+    </section>
+<!--Event Focus Ends -->
+<!-- Forms Start -->
+    <div class="container">
+        <p class="lead"><h3>Call For Proposals Form</h3></p>
+    <form class="well form-horizontal" action="{% url 'pybay_cfp' %}" method="post" id="contact_form">
+    <div class="form-group">
+        {% csrf_token %}
+        {% crispy form %}
+
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-warning">Submit<span class="glyphicon glyphicon-send"></span> </button>
+            </div></div>
+    </form>
+    </div>
+<!-- Forms End -->
+{% endblock content %}
