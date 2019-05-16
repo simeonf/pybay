@@ -5,7 +5,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
-ADMINS = [('Simeon', 'simeonf@gmail.com')]
+ADMINS = [('Simeon', 'simeonf@gmail.com'),('Dataman','dataman@general-influence.com')]
 
 DEBUG = True
 EMAIL_DEBUG = DEBUG
