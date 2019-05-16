@@ -5,7 +5,7 @@ from os.path import join
 from fabric.api import cd, env, hide, local, run, sudo
 from fabric.contrib import files
 
-env.hosts = ['pyconsf.com']
+env.hosts = ['pybay.com']
 env.user = 'pybay'
 
 BASE = "/data/websites"
