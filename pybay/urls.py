@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^sponsors/$', RedirectView.as_view(pattern_name='pybay_sponsors', permanent=False)),
     url(r"^code-of-conduct$", TemplateView.as_view(template_name="frontend/code_of_conduct.html"), name="pybay_coc"),
     url(r"^coc-reporting$", TemplateView.as_view(template_name="frontend/coc_reporting.html"), name="pybay_coc_reporting"),
-    url(r"^registration$", RedirectView.as_view(url='https://ti.to/sf-python/pybay2018')),
+    url(r"^registration$", RedirectView.as_view(url='https://ti.to/sf-python/pybay2019')),
     url(r"^faq$", views.pybay_faq_index, name="pybay_faq"),
 
     url(r"^admin/", include(admin.site.urls)),
