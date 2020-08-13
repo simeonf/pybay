@@ -23,27 +23,27 @@
         <![endif]-->
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
 
-        {% static 'new/img/PyBay2020-WhiteBackground.png' as share_image %}
-        {% with share_image_width=506 share_image_height=253 share_title="PyBay 2020" share_desc="Like the always-sold-out PyCon, PyBay will be a weekend of fun geeking out with awesome developers on one of your favorite topics - Python!" %}
-        {% block share_card %}
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@py_bay">
-        <meta name="twitter:title" content="{{ share_title }}">
-        <meta name="twitter:description" content="{{ share_desc }}">
-        <meta name="twitter:image" content="{{ CANONICAL_HOST }}{{ share_image }}">
+        {% static 'new/img/card-2020.png' as share_image %}
+            {% with share_image_width=506 share_image_height=285 share_title="PyBay 2020" share_desc="Online conference with robust HALLWAY track to help Pythonistas beat isolation blues. 30+ Talks, Fireside Chats, Job Fair, Expo, Open Spaces" %}
+                {% block share_card %}
+                <meta name="twitter:card" content="summary_large_image">
+                <meta name="twitter:site" content="@py_bay">
+                <meta name="twitter:title" content="{{ share_title }}">
+                <meta name="twitter:description" content="{{ share_desc }}">
+                <meta name="twitter:image" content="{{ CANONICAL_HOST }}{{ share_image }}">
 
-        <meta property="fb:app_id" content="252653391896401" />
-        <meta property="og:url" content="{{ CANONICAL_HOST }}{{ request.get_full_path }}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="{{ share_title }}" />
-        <meta property="og:description" content="{{ share_desc }}" />
-        <meta property="og:image" content="{{ CANONICAL_HOST }}{{ share_image }}" />
-        <meta property="og:image:width" content="{{ share_image_width }}" />
-        <meta property="og:image:height" content="{{ share_image_height }}" />
+                <meta property="fb:app_id" content="252653391896401" />
+                <meta property="og:url" content="{{ CANONICAL_HOST }}{{ request.get_full_path }}" />
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content="{{ share_title }}" />
+                <meta property="og:description" content="{{ share_desc }}" />
+                <meta property="og:image" content="{{ CANONICAL_HOST }}{{ share_image }}" />
+                <meta property="og:image:width" content="{{ share_image_width }}" />
+                <meta property="og:image:height" content="{{ share_image_height }}" />
 
-        <meta name="description" content="{{ share_desc }}" />
-        {% endblock %}
-        {% endwith %}
+                <meta name="description" content="{{ share_desc }}" />
+                {% endblock %}
+            {% endwith %}
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
